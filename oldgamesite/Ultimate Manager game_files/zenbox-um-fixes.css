@@ -1,0 +1,7 @@
+/* Reset box-sizing for zendesk box */
+#zenbox_tab,
+#zenbox_tab #feedback_tab_text {
+	-webkit-box-sizing: content-box;
+	   -moz-box-sizing: content-box;
+	        box-sizing: content-box;
+}

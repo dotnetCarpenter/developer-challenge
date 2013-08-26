@@ -1,0 +1,3009 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en-US" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en-US" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en-US" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html style="" class="js no-flexbox canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients no-cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths wf-myriadpro-n3-active wf-myriadpro-n4-active wf-myriadpro-n6-active wf-myriadpro-n7-active wf-active" lang="en-US"><!--<![endif]--><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Ultimate Manager</title>
+        <meta name="description" content="The world's best fantasy football experience">
+        <meta name="viewport">
+        <meta property="og:image" content="https://www.ultimatemanager.com/landing-page/img/opengraph-image.jpg">
+        <link rel="stylesheet" href="Ultimate%20Manager_files/compiled.css">
+        <script src="Ultimate%20Manager_files/mixpanel-2.js" async="" type="text/javascript"></script><script src="Ultimate%20Manager_files/ga.js" async="" type="text/javascript"></script><script src="Ultimate%20Manager_files/modernizr-2.js"></script>
+        <script type="text/javascript" src="Ultimate%20Manager_files/bzy4xzq.js"></script>
+        <link href="Ultimate%20Manager_files/d.css" rel="stylesheet"><script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+    </head>
+    <body data-spy="scroll" data-target=".navbar" data-offset="69">
+        <div id="sign-in" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sign-in-title" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="sign-in-title">Sign in</h3>
+            </div>
+            <div class="modal-body" id="sign-in-modal">
+                <p>
+                    <a href="https://www.ultimatemanager.com/api/login/facebook" class="btn facebook"><i class="icon-facebook"></i> Sign in with Facebook</a>
+                </p>
+                <p class="email-sign-in">— or —<br><a href="#um-sign-in" data-toggle="collapse">sign in with email</a></p>
+                <form id="um-sign-in" class="collapse form-horizontal">
+                    <hr>
+                    <div class="control-group">
+                        <label class="control-label" for="inputEmail">Email</label>
+                        <div class="controls">
+                            <input name="username" id="inputEmail" placeholder="michael@laudrup.dk" type="email">
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="inputPassword">Password</label>
+                        <div class="controls">
+                            <input name="password" id="inputPassword" placeholder="Secret key" type="password">
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <button type="submit" class="btn">Sign in</button>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <a href="#" class="action-lost-password">Lost your password?</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-body hide" id="lost-password-modal">
+                <p>It happens to all of us!<br>We'll send you a new password. Just type in your e-mail below.</p>
+                <form id="um-lost-password" class="form-horizontal">
+                    <div class="control-group">
+                        <label class="control-label" for="inputEmailLostPassword">Email</label>
+                        <div class="controls">
+                            <input name="email" id="inputEmailLostPassword" placeholder="michael@laudrup.dk" type="email">
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <button type="submit" class="btn">Send</button> <a href="#" class="action-lostpassword-back" style="margin-left: 10px">Cancel</a>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                Don't have a user yet? <a class="btn" href="https://www.ultimatemanager.com/game/team/new">Set up team and user</a>
+            </div>
+        </div>
+        <div class="section" id="top">
+            <div class="navbar navbar-fixed-top">
+                <div class="navbar-inner">
+                    <div class="container">
+                        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </a>
+                        <a class="brand" href="#">Ultimate Manager</a>
+                        <div class="mediapartner-branding mediapartner-branding-um"></div>
+                        <div class="nav-collapse collapse">
+                            <ul class="nav">
+                                <li class="hide"><a href="#top">Top</a></li>
+                                <li class=""><a href="#leagues">Leagues</a></li>
+                                <li class=""><a href="#prices">Pricing</a></li>
+                                <li class="active"><a href="#team">Team</a></li>
+                                <li><a href="#contact">Contact</a></li>
+                            </ul>
+                            <div class="btns pull-right">
+                                <a href="https://www.ultimatemanager.com/game/team/new" role="button" class="btn bright create">Create my team</a>
+                                <button type="submit" class="btn sign-in" data-toggle="modal" data-target="#sign-in">Sign in</button>
+                            </div>
+                        </div><!--/.nav-collapse -->
+                    </div>
+                </div>
+            </div>
+            <div class="container content">
+                <div class="dropdown language-selector">
+                    
+                    <a class="btn dark smaller dropdown-toggle" data-toggle="dropdown" href="#">
+                        English
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu pull-right">
+                        <li><a href="https://www.ultimatemanager.com/?lang=en_US">English</a></li>
+                        <li><a href="https://www.ultimatemanager.com/?lang=da_DK">Dansk</a></li>
+                        <li><a href="https://www.ultimatemanager.com/?lang=de_DE">Deutsch</a></li>
+                        <li><a href="https://www.ultimatemanager.com/?lang=se_SE">Svenska</a></li>
+                    </ul>
+                </div>
+                <h1><span>Who is on your dream team?</span></h1>
+                <p>We challenge the way people consume football. When setting a team, you are no longer merely a viewer, you become a manager</p>
+                <p>Wanna play?</p>
+                <p class="btns">
+                    <a role="button" href="https://www.ultimatemanager.com/game/team/new" class="btn bigger">Create my team</a>
+                    <button type="button" class="learn-more btn bigger dark">Learn more</button>
+                </p>
+
+                <div class="pitch">
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <script type="text/template">
+                        <div class="player <$- classes $>">
+                            <span><span><$- name $></span></span>
+                        </div>
+                    </script>
+                
+                        <div class="player goalie premier-league-goalkeeper-white">
+                            <span><span>Hart</span></span>
+                        </div>
+                    
+                        <div class="player fp1 premier-league-TOT-brown">
+                            <span><span>Walker</span></span>
+                        </div>
+                    
+                        <div class="player fp2 premier-league-CHE-white">
+                            <span><span>Luiz</span></span>
+                        </div>
+                    
+                        <div class="player fp3 premier-league-LIV-white">
+                            <span><span>Agger</span></span>
+                        </div>
+                    
+                        <div class="player fp4 premier-league-EVE-white">
+                            <span><span>Baines</span></span>
+                        </div>
+                    
+                        <div class="player fp5 premier-league-ARS-brown">
+                            <span><span>Wallcott</span></span>
+                        </div>
+                    
+                        <div class="player fp6 premier-league-SWA-white">
+                            <span><span>Michu</span></span>
+                        </div>
+                    
+                        <div class="player fp7 premier-league-CHE-white">
+                            <span><span>Lampard</span></span>
+                        </div>
+                    
+                        <div class="player fp8 premier-league-MAC-white">
+                            <span><span>Silva</span></span>
+                        </div>
+                    
+                        <div class="player fp9 premier-league-MAU-white">
+                            <span><span>van Persie</span></span>
+                        </div>
+                    
+                        <div class="player fp10 premier-league-AVL-black">
+                            <span><span>Benteke</span></span>
+                        </div>
+                    </div>
+                <script class="pitch-data" type="application/json">
+                    {
+                        "premier-league": [
+                            { "id": "goalie", "skin": "white", "name": "Hart", "club": "goalkeeper" },
+                            { "id": "fp1", "skin": "brown", "name": "Walker", "club": "TOT" },
+                            { "id": "fp2", "skin": "white", "name": "Luiz", "club": "CHE" },
+                            { "id": "fp3", "skin": "white", "name": "Agger", "club": "LIV" },
+                            { "id": "fp4", "skin": "white", "name": "Baines", "club": "EVE" },
+                            { "id": "fp5", "skin": "brown", "name": "Wallcott", "club": "ARS" },
+                            { "id": "fp6", "skin": "white", "name": "Michu", "club": "SWA" },
+                            { "id": "fp7", "skin": "white", "name": "Lampard", "club": "CHE" },
+                            { "id": "fp8", "skin": "white", "name": "Silva", "club": "MAC" },
+                            { "id": "fp9", "skin": "white", "name": "van Persie", "club": "MAU" },
+                            { "id": "fp10", "skin": "black", "name": "Benteke", "club": "AVL" }
+                        ],
+                        "bundesliga": [
+                            { "id": "goalie", "skin": "white", "name": "ter Stegen", "club": "goalkeeper" },
+                            { "id": "fp1", "skin": "white", "name": "Lahm", "club": "FCB" },
+                            { "id": "fp2", "skin": "white", "name": "Hummels", "club": "BVB" },
+                            { "id": "fp3", "skin": "white", "name": "Westermann", "club": "HSV" },
+                            { "id": "fp4", "skin": "white", "name": "Sorg", "club": "SCF" },
+                            { "id": "fp5", "skin": "black", "name": "Farfan", "club": "S04" },
+                            { "id": "fp6", "skin": "white", "name": "Schweinsteiger", "club": "FCB" },
+                            { "id": "fp7", "skin": "brown", "name": "Diego", "club": "WOB" },
+                            { "id": "fp8", "skin": "white", "name": "Meier", "club": "FFM" },
+                            { "id": "fp9", "skin": "white", "name": "Kießling", "club": "B04" },
+                            { "id": "fp10", "skin": "white", "name": "Ibisevic", "club": "VFB" }
+                        ]
+                    }
+                </script>
+            </div>
+        </div>
+
+        <section id="leagues">
+            <div class="container">
+                <header>
+                    <h1>Leagues.</h1>
+                    <h2>Play your favorite leagues.</h2>
+                    <p>Set your dream team for the Premier League and the Bundesliga.</p>
+                </header>
+                <article class="sheets">
+                    <nav><ul><li class="active"></li><li></li><li></li></ul></nav>
+                    <div style="padding-bottom: 253px; position: relative; top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 978px; height: 0px;" class="viewport iosSlider">
+                        <div style="position: relative; cursor: default; transform: matrix(1, 0, 0, 1, -654, 0); width: 654px;" class="sheets-container slider">
+                            <section style="position: absolute; top: 0px; transform: matrix(1, 0, 0, 1, 654, 0); width: 218px;" class="active slide" data-id="premier-league">
+                                <div class="league-banner premierleague"></div>
+                                <h1>Premier League</h1>
+                            </section>
+                            <section style="position: absolute; top: 0px; transform: matrix(1, 0, 0, 1, 872, 0); width: 218px;" class="slide" data-id="bundesliga">
+                                <div class="league-banner bundesliga"></div>
+                                <h1>Bundesliga</h1>
+                            </section>
+                            <section style="position: absolute; top: 0px; transform: matrix(1, 0, 0, 1, 1090, 0); width: 218px;" class="inactive slide">
+                                <div class="league-banner cl"></div>
+                                <h1>Champions League</h1>
+                                <small>Coming Soon</small>
+                            </section>
+                        </div>
+                    </div>
+                </article></div>
+            
+        </section>
+
+        <section class="open" id="timeline">
+            <div class="container">
+                <article class="sheets">
+                    <div class="viewport">
+                        <div class="sheets-container">
+                            <section style="display: block;" data-league-id="premier-league">
+                                
+                                <header>
+                                    <h1>Premier League.</h1>
+                                    <h2>Is your team ready for battle?</h2>
+                                </header>
+                                <hr>
+                                <div class="countdown">
+                                    <h1>Premier League Season 2013/2014 kicks off in</h1>
+                                    <span class="unit">
+                                        <span class="value">4</span>
+                                        <span class="label">Days</span>
+                                    </span>
+                                    <span class="unit">
+                                        <span class="value">23</span>
+                                        <span class="label">Hours</span>
+                                    </span>
+                                    <span class="unit">
+                                        <span class="value">2</span>
+                                        <span class="label">Minutes</span>
+                                    </span>
+                                </div>
+                                <hr>
+                                <div style="height: 378px;" class="matches transition-prepared">
+                                    <ul class="match-list">
+                                        <li class="title">Upcoming matches</li>
+                                                <li class="always-visible">
+                                            <div class="pull-left home">
+                                                <span class="crest premier-league-ARS"></span> ARS
+                                            </div>
+                                            <div class="pull-right away">
+                                                AVL <span class="crest premier-league-AVL"></span>
+                                            </div>
+                                            <div class="result">-</div>
+                                        </li>
+                                                <li class="always-visible">
+                                            <div class="pull-left home">
+                                                <span class="crest premier-league-CHE"></span> CHE
+                                            </div>
+                                            <div class="pull-right away">
+                                                HUL <span class="crest premier-league-HUL"></span>
+                                            </div>
+                                            <div class="result">-</div>
+                                        </li>
+                                                <li class="always-visible">
+                                            <div class="pull-left home">
+                                                <span class="crest premier-league-CRY"></span> CRY
+                                            </div>
+                                            <div class="pull-right away">
+                                                TOT <span class="crest premier-league-TOT"></span>
+                                            </div>
+                                            <div class="result">-</div>
+                                        </li>
+                                                <li class="always-visible">
+                                            <div class="pull-left home">
+                                                <span class="crest premier-league-LIV"></span> LIV
+                                            </div>
+                                            <div class="pull-right away">
+                                                STO <span class="crest premier-league-STO"></span>
+                                            </div>
+                                            <div class="result">-</div>
+                                        </li>
+                                                <li style="display: list-item;">
+                                            <div class="pull-left home">
+                                                <span class="crest premier-league-MAC"></span> MAC
+                                            </div>
+                                            <div class="pull-right away">
+                                                NEW <span class="crest premier-league-NEW"></span>
+                                            </div>
+                                            <div class="result">-</div>
+                                        </li>
+                                                <li style="display: list-item;">
+                                            <div class="pull-left home">
+                                                <span class="crest premier-league-NOR"></span> NOR
+                                            </div>
+                                            <div class="pull-right away">
+                                                EVE <span class="crest premier-league-EVE"></span>
+                                            </div>
+                                            <div class="result">-</div>
+                                        </li>
+                                                <li style="display: list-item;">
+                                            <div class="pull-left home">
+                                                <span class="crest premier-league-SUN"></span> SUN
+                                            </div>
+                                            <div class="pull-right away">
+                                                FUL <span class="crest premier-league-FUL"></span>
+                                            </div>
+                                            <div class="result">-</div>
+                                        </li>
+                                                <li style="display: list-item;">
+                                            <div class="pull-left home">
+                                                <span class="crest premier-league-SWA"></span> SWA
+                                            </div>
+                                            <div class="pull-right away">
+                                                MAU <span class="crest premier-league-MAU"></span>
+                                            </div>
+                                            <div class="result">-</div>
+                                        </li>
+                                                <li style="display: list-item;">
+                                            <div class="pull-left home">
+                                                <span class="crest premier-league-WBA"></span> WBA
+                                            </div>
+                                            <div class="pull-right away">
+                                                SOU <span class="crest premier-league-SOU"></span>
+                                            </div>
+                                            <div class="result">-</div>
+                                        </li>
+                                                <li style="display: list-item;">
+                                            <div class="pull-left home">
+                                                <span class="crest premier-league-WHU"></span> WHU
+                                            </div>
+                                            <div class="pull-right away">
+                                                CAR <span class="crest premier-league-CAR"></span>
+                                            </div>
+                                            <div class="result">-</div>
+                                        </li>
+                                                <li style="display: list-item;">
+                                            <div class="pull-left home">
+                                                <span class="crest premier-league-CHE"></span> CHE
+                                            </div>
+                                            <div class="pull-right away">
+                                                AVL <span class="crest premier-league-AVL"></span>
+                                            </div>
+                                            <div class="result">-</div>
+                                        </li>
+                                    </ul>
+                                    <ul class="match-list">
+                                        <li class="title">Premier League Season 2013/2014 has not started.</li>
+                                    </ul>
+                                </div>
+                                <div class="show-more">
+                                    <a href="#timeline-toggle">
+                                        Show more
+                                        <i class="icon-caret-down"></i>
+                                    </a>
+                                </div>
+                                <div class="show-less">
+                                    <a href="#timeline-toggle">
+                                        Show less
+                                        <i class="icon-caret-up"></i>
+                                    </a>
+                                </div>
+                            </section>
+                            <section style="display: none;" data-league-id="bundesliga">
+                                
+                                <header>
+                                    <h1>Bundesliga.</h1>
+                                    <h2>Is your team ready for battle?</h2>
+                                </header>
+                                <hr>
+                                <div class="countdown">
+                                    <h1>Bundesliga Season 2013/2014 kicks off in</h1>
+                                    <span class="unit">
+                                        <span class="value">11</span>
+                                        <span class="label">Days</span>
+                                    </span>
+                                    <span class="unit">
+                                        <span class="value">5</span>
+                                        <span class="label">Hours</span>
+                                    </span>
+                                    <span class="unit">
+                                        <span class="value">47</span>
+                                        <span class="label">Minutes</span>
+                                    </span>
+                                </div>
+                                <hr>
+                                <div style="height: 378px;" class="matches transition-prepared">
+                                    <ul class="match-list">
+                                        <li class="title">Upcoming matches</li>
+                                                <li class="always-visible">
+                                            <div class="pull-left home">
+                                                <span class="crest bundesliga-BVB"></span> BVB
+                                            </div>
+                                            <div class="pull-right away">
+                                                BRE <span class="crest bundesliga-BRE"></span>
+                                            </div>
+                                            <div class="result">-</div>
+                                        </li>
+                                                <li class="always-visible">
+                                            <div class="pull-left home">
+                                                <span class="crest bundesliga-M05"></span> M05
+                                            </div>
+                                            <div class="pull-right away">
+                                                WOB <span class="crest bundesliga-WOB"></span>
+                                            </div>
+                                            <div class="result">-</div>
+                                        </li>
+                                                <li class="always-visible">
+                                            <div class="pull-left home">
+                                                <span class="crest bundesliga-HOF"></span> HOF
+                                            </div>
+                                            <div class="pull-right away">
+                                                SCF <span class="crest bundesliga-SCF"></span>
+                                            </div>
+                                            <div class="result">-</div>
+                                        </li>
+                                                <li class="always-visible">
+                                            <div class="pull-left home">
+                                                <span class="crest bundesliga-B04"></span> B04
+                                            </div>
+                                            <div class="pull-right away">
+                                                BMG <span class="crest bundesliga-BMG"></span>
+                                            </div>
+                                            <div class="result">-</div>
+                                        </li>
+                                                <li style="display: list-item;">
+                                            <div class="pull-left home">
+                                                <span class="crest bundesliga-FCB"></span> FCB
+                                            </div>
+                                            <div class="pull-right away">
+                                                FCN <span class="crest bundesliga-FCN"></span>
+                                            </div>
+                                            <div class="result">-</div>
+                                        </li>
+                                                <li style="display: list-item;">
+                                            <div class="pull-left home">
+                                                <span class="crest bundesliga-H96"></span> H96
+                                            </div>
+                                            <div class="pull-right away">
+                                                S04 <span class="crest bundesliga-S04"></span>
+                                            </div>
+                                            <div class="result">-</div>
+                                        </li>
+                                                <li style="display: list-item;">
+                                            <div class="pull-left home">
+                                                <span class="crest bundesliga-BSC"></span> BSC
+                                            </div>
+                                            <div class="pull-right away">
+                                                HSV <span class="crest bundesliga-HSV"></span>
+                                            </div>
+                                            <div class="result">-</div>
+                                        </li>
+                                                <li style="display: list-item;">
+                                            <div class="pull-left home">
+                                                <span class="crest bundesliga-EBS"></span> EBS
+                                            </div>
+                                            <div class="pull-right away">
+                                                FFM <span class="crest bundesliga-FFM"></span>
+                                            </div>
+                                            <div class="result">-</div>
+                                        </li>
+                                                <li style="display: list-item;">
+                                            <div class="pull-left home">
+                                                <span class="crest bundesliga-FCA"></span> FCA
+                                            </div>
+                                            <div class="pull-right away">
+                                                VFB <span class="crest bundesliga-VFB"></span>
+                                            </div>
+                                            <div class="result">-</div>
+                                        </li>
+                                    </ul>
+                                    <ul class="match-list">
+                                        <li class="title">Latest results</li>
+                                                <li class="always-visible">
+                                            <div class="pull-left home">
+                                                <span class="crest bundesliga-FCB"></span> FCB
+                                            </div>
+                                            <div class="pull-right away">
+                                                BMG <span class="crest bundesliga-BMG"></span>
+                                            </div>
+                                            <div class="result">3 - 1</div>
+                                        </li>
+                                                <li class="always-visible">
+                                            <div class="pull-left home">
+                                                <span class="crest bundesliga-HOF"></span> HOF
+                                            </div>
+                                            <div class="pull-right away">
+                                                FCN <span class="crest bundesliga-FCN"></span>
+                                            </div>
+                                            <div class="result">2 - 2</div>
+                                        </li>
+                                                <li class="always-visible">
+                                            <div class="pull-left home">
+                                                <span class="crest bundesliga-B04"></span> B04
+                                            </div>
+                                            <div class="pull-right away">
+                                                SCF <span class="crest bundesliga-SCF"></span>
+                                            </div>
+                                            <div class="result">3 - 1</div>
+                                        </li>
+                                                <li class="always-visible">
+                                            <div class="pull-left home">
+                                                <span class="crest bundesliga-EBS"></span> EBS
+                                            </div>
+                                            <div class="pull-right away">
+                                                BRE <span class="crest bundesliga-BRE"></span>
+                                            </div>
+                                            <div class="result">0 - 1</div>
+                                        </li>
+                                                <li style="display: list-item;">
+                                            <div class="pull-left home">
+                                                <span class="crest bundesliga-FCA"></span> FCA
+                                            </div>
+                                            <div class="pull-right away">
+                                                BVB <span class="crest bundesliga-BVB"></span>
+                                            </div>
+                                            <div class="result">0 - 4</div>
+                                        </li>
+                                                <li style="display: list-item;">
+                                            <div class="pull-left home">
+                                                <span class="crest bundesliga-H96"></span> H96
+                                            </div>
+                                            <div class="pull-right away">
+                                                WOB <span class="crest bundesliga-WOB"></span>
+                                            </div>
+                                            <div class="result">2 - 0</div>
+                                        </li>
+                                                <li style="display: list-item;">
+                                            <div class="pull-left home">
+                                                <span class="crest bundesliga-BSC"></span> BSC
+                                            </div>
+                                            <div class="pull-right away">
+                                                FFM <span class="crest bundesliga-FFM"></span>
+                                            </div>
+                                            <div class="result">6 - 1</div>
+                                        </li>
+                                                <li style="display: list-item;">
+                                            <div class="pull-left home">
+                                                <span class="crest bundesliga-M05"></span> M05
+                                            </div>
+                                            <div class="pull-right away">
+                                                VFB <span class="crest bundesliga-VFB"></span>
+                                            </div>
+                                            <div class="result">3 - 2</div>
+                                        </li>
+                                                <li style="display: list-item;">
+                                            <div class="pull-left home">
+                                                <span class="crest bundesliga-S04"></span> S04
+                                            </div>
+                                            <div class="pull-right away">
+                                                HSV <span class="crest bundesliga-HSV"></span>
+                                            </div>
+                                            <div class="result">3 - 3</div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="show-more">
+                                    <a href="#timeline-toggle">
+                                        Show more
+                                        <i class="icon-caret-down"></i>
+                                    </a>
+                                </div>
+                                <div class="show-less">
+                                    <a href="#timeline-toggle">
+                                        Show less
+                                        <i class="icon-caret-up"></i>
+                                    </a>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="fair-points">
+            <div class="bars-area">
+                <div class="container">
+                    <header>
+                        <h1>Fair points.</h1>
+                        <h2>For all your players.</h2>
+                        <p>Your players score points based on 30 different stats. Select a player to see all the cool stuff we measure.</p>
+                    </header>
+                    <ul class="players"><li class="selected">
+                                <strong>Hart</strong>
+                                <small>Goalkeeper</small>
+                            </li><li>
+                                <strong>Agger</strong>
+                                <small>Defender</small>
+                            </li><li>
+                                <strong>Lampard</strong>
+                                <small>Midfielder</small>
+                            </li><li>
+                                <strong>van Persie</strong>
+                                <small>Attacker</small>
+                            </li></ul>
+                    <div class="canvas-container">
+                        <div style="display: block; top: 230.98px; left: auto; right: 252.84px;" class="tooltip">
+                            <span class="label">5× Cross intercepted</span>
+                            <span class="points">25k</span>
+                        </div>
+                        <div class="canvas-wrapper"><canvas style="width: 880px; height: 350px;" height="350" width="880"></canvas></div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="attributes-resume">
+                    <div class="attribute">
+                        <span class="match-icon clean-sheet"></span>
+                        <div class="title">Clean sheet</div>
+                        <div class="earnings">+<span>75,000</span> Pts.</div>
+                    </div>
+                    <div class="attribute">
+                        <span class="match-icon penalty-saved"></span>
+                        <div class="title">Penalty saved</div>
+                        <div class="earnings">+<span>75,000</span> Pts.</div>
+                    </div>
+                    <div class="attribute">
+                        <span class="match-icon attempt-saved"></span>
+                        <div class="title">5× Attempt saved</div>
+                        <div class="earnings">+<span>30,000</span> Pts.</div>
+                    </div>
+                    <div class="attribute">
+                        <span class="match-icon other"></span>
+                        <div class="title">Other attributes</div>
+                        <div class="earnings">+<span>71,000</span> Pts.</div>
+                    </div>
+                </div>
+                <div style="height: 0px;" class="attributes transition-prepared">
+                    <script type="text/template">
+                        <li class="attribute">
+                            <strong><$- GZ.helpers.i18n.gettext(label) $></strong>
+                            <span class="number"><$- count $></span>
+                            <span class="earnings"><$- Math.round(value / 1000) $>k</span>
+                        </li>
+                    </script>
+                    <ul class="column first">
+                        <li class="titles">
+                            <span class="number">No. of actions</span>
+                            <span class="earnings">Total earnings</span>
+                        </li>
+                    
+                        <li class="attribute">
+                            <strong>Clean sheet</strong>
+                            <span class="number">1</span>
+                            <span class="earnings">75k</span>
+                        </li>
+                    
+                        <li class="attribute">
+                            <strong>Penalty saved</strong>
+                            <span class="number">1</span>
+                            <span class="earnings">75k</span>
+                        </li>
+                    
+                        <li class="attribute">
+                            <strong>Attempt saved</strong>
+                            <span class="number">5</span>
+                            <span class="earnings">30k</span>
+                        </li>
+                    
+                        <li class="attribute">
+                            <strong>Cross intercepted</strong>
+                            <span class="number">5</span>
+                            <span class="earnings">25k</span>
+                        </li>
+                    
+                        <li class="attribute">
+                            <strong>Long pass</strong>
+                            <span class="number">14</span>
+                            <span class="earnings">21k</span>
+                        </li>
+                    </ul>
+                    <ul class="column">
+                        <li class="titles">
+                            <span class="number">No. of actions</span>
+                            <span class="earnings">Total earnings</span>
+                        </li>
+                    
+                        <li class="attribute">
+                            <strong>Goal scored by team</strong>
+                            <span class="number">2</span>
+                            <span class="earnings">20k</span>
+                        </li>
+                    
+                        <li class="attribute">
+                            <strong>Match won</strong>
+                            <span class="number">1</span>
+                            <span class="earnings">15k</span>
+                        </li>
+                    
+                        <li class="attribute">
+                            <strong>Starting 11</strong>
+                            <span class="number">1</span>
+                            <span class="earnings">10k</span>
+                        </li>
+                    
+                        <li class="attribute">
+                            <strong>Successful pass</strong>
+                            <span class="number">14</span>
+                            <span class="earnings">7k</span>
+                        </li>
+                    
+                        <li class="attribute">
+                            <strong>Aerial duel won</strong>
+                            <span class="number">1</span>
+                            <span class="earnings">3k</span>
+                        </li>
+                    </ul>
+                    <ul class="column last">
+                        <li class="titles">
+                            <span class="number">No. of actions</span>
+                            <span class="earnings">Total earnings</span>
+                        </li>
+                    
+                        <li class="attribute">
+                            <strong>Duel won</strong>
+                            <span class="number">1</span>
+                            <span class="earnings">3k</span>
+                        </li>
+                    
+                        <li class="attribute">
+                            <strong>Defensive clearance</strong>
+                            <span class="number">1</span>
+                            <span class="earnings">2k</span>
+                        </li>
+                    
+                        <li class="attribute">
+                            <strong>Interception</strong>
+                            <span class="number">1</span>
+                            <span class="earnings">2k</span>
+                        </li>
+                    
+                        <li class="attribute">
+                            <strong>Yellow card</strong>
+                            <span class="number">1</span>
+                            <span class="earnings">-25k</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="show-more">
+                    <a href="#fair-points-toggle">
+                        Show full attribute list
+                        <i class="icon-caret-down"></i>
+                    </a>
+                </div>
+                <div class="show-less">
+                    <a href="#fair-points-toggle">
+                        Close full attribute list
+                        <i class="icon-caret-up"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="live-action">
+            <div class="glow"></div>
+            <div class="container">
+                <header>
+                    <h1>Live action.</h1>
+                    <h2>Follow every match live.</h2>
+                    <p>Follow all matches live with our unique live feed.</p>
+                </header>
+                <div class="feed">
+                    <script type="text/template">
+                        <li<$ if (value < 0) print(' class="negative"') $>>
+                            <span class="match-icon <$- label.replace(/ /g, '-').toLowerCase() $>"></span>
+                            <span class="minute"><$
+                                var overtime = period * 45;
+                                if (minute > overtime) {
+                                    print(overtime + "'+" + (minute - overtime));
+                                } else {
+                                    print(minute + "'");
+                                }
+                            $></span>
+                            <span class="action"><strong><$- GZ.helpers.i18n.gettext(label) $></strong> by <strong><$- name $></strong></span>
+                            <span class="points"><$- formattedValue $> Pts.</span>
+                        </li>
+                    </script>
+                    <ul style="max-height: 490px;">
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">90'+4</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon long-pass"></span>
+                            <span class="minute">90'+4</span>
+                            <span class="action"><strong>Long pass</strong> by <strong>Hart</strong></span>
+                            <span class="points">+1,500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon match-won"></span>
+                            <span class="minute">90'+4</span>
+                            <span class="action"><strong>Match won</strong> by <strong>Hart</strong></span>
+                            <span class="points">+15,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon clean-sheet"></span>
+                            <span class="minute">90'+4</span>
+                            <span class="action"><strong>Clean sheet</strong> by <strong>Hart</strong></span>
+                            <span class="points">+75,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">90'+3</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">90'+3</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon duel-won"></span>
+                            <span class="minute">90'+3</span>
+                            <span class="action"><strong>Duel won</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+3,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon match-won"></span>
+                            <span class="minute">90'+3</span>
+                            <span class="action"><strong>Match won</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+10,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon clean-sheet"></span>
+                            <span class="minute">90'+3</span>
+                            <span class="action"><strong>Clean sheet</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+25,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">90'+3</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Hart</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">90'+3</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Hart</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">90'+2</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-cross"></span>
+                            <span class="minute">90'+2</span>
+                            <span class="action"><strong>Successful cross</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+5,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon duel-won"></span>
+                            <span class="minute">90'+1</span>
+                            <span class="action"><strong>Duel won</strong> by <strong>Agger</strong></span>
+                            <span class="points">+3,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon match-won"></span>
+                            <span class="minute">90'+1</span>
+                            <span class="action"><strong>Match won</strong> by <strong>Agger</strong></span>
+                            <span class="points">+15,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon clean-sheet"></span>
+                            <span class="minute">90'+1</span>
+                            <span class="action"><strong>Clean sheet</strong> by <strong>Agger</strong></span>
+                            <span class="points">+50,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">90'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">90'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">90'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">90'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Agger</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">89'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Agger</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon interception"></span>
+                            <span class="minute">89'</span>
+                            <span class="action"><strong>Interception</strong> by <strong>Agger</strong></span>
+                            <span class="points">+1,500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">88'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">88'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Agger</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">88'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Agger</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon duel-won"></span>
+                            <span class="minute">88'</span>
+                            <span class="action"><strong>Duel won</strong> by <strong>Agger</strong></span>
+                            <span class="points">+3,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon long-pass"></span>
+                            <span class="minute">88'</span>
+                            <span class="action"><strong>Long pass</strong> by <strong>Agger</strong></span>
+                            <span class="points">+1,500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">87'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Agger</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon duel-won"></span>
+                            <span class="minute">87'</span>
+                            <span class="action"><strong>Duel won</strong> by <strong>Agger</strong></span>
+                            <span class="points">+3,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon goal-scored-by-team"></span>
+                            <span class="minute">87'</span>
+                            <span class="action"><strong>Goal scored by team</strong> by <strong>Agger</strong></span>
+                            <span class="points">+10,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon goal"></span>
+                            <span class="minute">86'</span>
+                            <span class="action"><strong>Goal</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+100,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">86'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Agger</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">85'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Agger</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">85'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Hart</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">84'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon long-pass"></span>
+                            <span class="minute">84'</span>
+                            <span class="action"><strong>Long pass</strong> by <strong>Hart</strong></span>
+                            <span class="points">+1,500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">83'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon duel-won"></span>
+                            <span class="minute">83'</span>
+                            <span class="action"><strong>Duel won</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+3,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon dribble"></span>
+                            <span class="minute">83'</span>
+                            <span class="action"><strong>Dribble</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+3,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">82'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon dribble"></span>
+                            <span class="minute">82'</span>
+                            <span class="action"><strong>Dribble</strong> by <strong>Agger</strong></span>
+                            <span class="points">+3,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">82'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Hart</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">81'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">81'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon goal-scored-by-team"></span>
+                            <span class="minute">81'</span>
+                            <span class="action"><strong>Goal scored by team</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+10,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon aerial-duel-won"></span>
+                            <span class="minute">81'</span>
+                            <span class="action"><strong>Aerial duel won</strong> by <strong>Agger</strong></span>
+                            <span class="points">+3,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon goal-scored-by-team"></span>
+                            <span class="minute">80'</span>
+                            <span class="action"><strong>Goal scored by team</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+10,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon shot-on-target"></span>
+                            <span class="minute">80'</span>
+                            <span class="action"><strong>Shot on target</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+5,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">80'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Agger</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon interception"></span>
+                            <span class="minute">80'</span>
+                            <span class="action"><strong>Interception</strong> by <strong>Agger</strong></span>
+                            <span class="points">+1,500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon duel-won"></span>
+                            <span class="minute">80'</span>
+                            <span class="action"><strong>Duel won</strong> by <strong>Agger</strong></span>
+                            <span class="points">+3,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon assist"></span>
+                            <span class="minute">80'</span>
+                            <span class="action"><strong>Assist</strong> by <strong>Agger</strong></span>
+                            <span class="points">+50,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon hit-woodwork"></span>
+                            <span class="minute">78'</span>
+                            <span class="action"><strong>Hit woodwork</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+15,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">78'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Agger</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">78'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Agger</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">78'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Agger</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">77'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">77'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">77'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">77'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon shot-on-target"></span>
+                            <span class="minute">77'</span>
+                            <span class="action"><strong>Shot on target</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+5,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">77'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Agger</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">76'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li class="negative">
+                            <span class="match-icon yellow-card"></span>
+                            <span class="minute">76'</span>
+                            <span class="action"><strong>Yellow card</strong> by <strong>Lampard</strong></span>
+                            <span class="points">--25,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon shot-on-target"></span>
+                            <span class="minute">75'</span>
+                            <span class="action"><strong>Shot on target</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+5,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">74'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">74'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon shot-on-target"></span>
+                            <span class="minute">73'</span>
+                            <span class="action"><strong>Shot on target</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+5,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon defensive-clearance"></span>
+                            <span class="minute">73'</span>
+                            <span class="action"><strong>Defensive clearance</strong> by <strong>Hart</strong></span>
+                            <span class="points">+1,500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">72'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon big-chance-created"></span>
+                            <span class="minute">71'</span>
+                            <span class="action"><strong>Big chance created</strong> by <strong>Agger</strong></span>
+                            <span class="points">+10,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon penalty-saved"></span>
+                            <span class="minute">71'</span>
+                            <span class="action"><strong>Penalty saved</strong> by <strong>Hart</strong></span>
+                            <span class="points">+75,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">70'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">70'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon duel-won"></span>
+                            <span class="minute">70'</span>
+                            <span class="action"><strong>Duel won</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+3,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon duel-won"></span>
+                            <span class="minute">70'</span>
+                            <span class="action"><strong>Duel won</strong> by <strong>Agger</strong></span>
+                            <span class="points">+3,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">69'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">69'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">69'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">69'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon dribble"></span>
+                            <span class="minute">68'</span>
+                            <span class="action"><strong>Dribble</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+3,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">68'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon aerial-duel-won"></span>
+                            <span class="minute">68'</span>
+                            <span class="action"><strong>Aerial duel won</strong> by <strong>Hart</strong></span>
+                            <span class="points">+3,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon long-pass"></span>
+                            <span class="minute">67'</span>
+                            <span class="action"><strong>Long pass</strong> by <strong>Agger</strong></span>
+                            <span class="points">+1,500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">67'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Agger</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon defensive-clearance"></span>
+                            <span class="minute">67'</span>
+                            <span class="action"><strong>Defensive clearance</strong> by <strong>Agger</strong></span>
+                            <span class="points">+1,500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">66'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon dribble"></span>
+                            <span class="minute">66'</span>
+                            <span class="action"><strong>Dribble</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+3,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">66'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-cross"></span>
+                            <span class="minute">66'</span>
+                            <span class="action"><strong>Successful cross</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+5,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">66'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Agger</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon aerial-duel-won"></span>
+                            <span class="minute">66'</span>
+                            <span class="action"><strong>Aerial duel won</strong> by <strong>Agger</strong></span>
+                            <span class="points">+3,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">64'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">64'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">64'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">63'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">62'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li class="negative">
+                            <span class="match-icon goal-against-team"></span>
+                            <span class="minute">62'</span>
+                            <span class="action"><strong>Goal against team</strong> by <strong>van Persie</strong></span>
+                            <span class="points">--10,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon shot-on-target"></span>
+                            <span class="minute">62'</span>
+                            <span class="action"><strong>Shot on target</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+5,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">61'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">61'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon goal"></span>
+                            <span class="minute">61'</span>
+                            <span class="action"><strong>Goal</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+100,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">61'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon aerial-duel-won"></span>
+                            <span class="minute">61'</span>
+                            <span class="action"><strong>Aerial duel won</strong> by <strong>Agger</strong></span>
+                            <span class="points">+3,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">60'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Agger</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">60'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Hart</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon big-chance-created"></span>
+                            <span class="minute">59'</span>
+                            <span class="action"><strong>Big chance created</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+10,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon assist"></span>
+                            <span class="minute">58'</span>
+                            <span class="action"><strong>Assist</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+50,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon goal-scored-by-team"></span>
+                            <span class="minute">58'</span>
+                            <span class="action"><strong>Goal scored by team</strong> by <strong>Hart</strong></span>
+                            <span class="points">+10,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">57'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">57'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Agger</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">56'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Agger</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">56'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Agger</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">55'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Agger</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">54'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">54'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Agger</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon attempt-saved"></span>
+                            <span class="minute">54'</span>
+                            <span class="action"><strong>Attempt saved</strong> by <strong>Hart</strong></span>
+                            <span class="points">+6,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon long-pass"></span>
+                            <span class="minute">53'</span>
+                            <span class="action"><strong>Long pass</strong> by <strong>Hart</strong></span>
+                            <span class="points">+1,500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">52'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">52'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">52'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">52'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Agger</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">52'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Agger</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">51'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">51'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Agger</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">50'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon dribble"></span>
+                            <span class="minute">50'</span>
+                            <span class="action"><strong>Dribble</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+3,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon blocked-shot"></span>
+                            <span class="minute">50'</span>
+                            <span class="action"><strong>Blocked shot</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+5,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">49'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">45'+4</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon shot-on-target"></span>
+                            <span class="minute">45'+4</span>
+                            <span class="action"><strong>Shot on target</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+5,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon dribble"></span>
+                            <span class="minute">49'</span>
+                            <span class="action"><strong>Dribble</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+3,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon defensive-clearance"></span>
+                            <span class="minute">45'+4</span>
+                            <span class="action"><strong>Defensive clearance</strong> by <strong>Agger</strong></span>
+                            <span class="points">+1,500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon long-pass"></span>
+                            <span class="minute">49'</span>
+                            <span class="action"><strong>Long pass</strong> by <strong>Hart</strong></span>
+                            <span class="points">+1,500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">45'+3</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">45'+3</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">48'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Agger</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon cross-intercepted"></span>
+                            <span class="minute">48'</span>
+                            <span class="action"><strong>Cross intercepted</strong> by <strong>Hart</strong></span>
+                            <span class="points">+5,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon long-pass"></span>
+                            <span class="minute">48'</span>
+                            <span class="action"><strong>Long pass</strong> by <strong>Hart</strong></span>
+                            <span class="points">+1,500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon duel-won"></span>
+                            <span class="minute">48'</span>
+                            <span class="action"><strong>Duel won</strong> by <strong>Hart</strong></span>
+                            <span class="points">+3,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">45'+3</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Hart</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">47'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Hart</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li class="negative">
+                            <span class="match-icon goal-against-team"></span>
+                            <span class="minute">46'</span>
+                            <span class="action"><strong>Goal against team</strong> by <strong>van Persie</strong></span>
+                            <span class="points">--10,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon hit-woodwork"></span>
+                            <span class="minute">45'+1</span>
+                            <span class="action"><strong>Hit woodwork</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+15,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon goal-scored-by-team"></span>
+                            <span class="minute">45'+1</span>
+                            <span class="action"><strong>Goal scored by team</strong> by <strong>Agger</strong></span>
+                            <span class="points">+10,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon starting-11"></span>
+                            <span class="minute">46'</span>
+                            <span class="action"><strong>Starting 11</strong> by <strong>Agger</strong></span>
+                            <span class="points">+10,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon blocked-shot"></span>
+                            <span class="minute">46'</span>
+                            <span class="action"><strong>Blocked shot</strong> by <strong>Agger</strong></span>
+                            <span class="points">+5,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon long-pass"></span>
+                            <span class="minute">45'+1</span>
+                            <span class="action"><strong>Long pass</strong> by <strong>Hart</strong></span>
+                            <span class="points">+1,500 Pts.</span>
+                        </li>
+                    
+                        <li class="negative">
+                            <span class="match-icon goal-against-team"></span>
+                            <span class="minute">45'</span>
+                            <span class="action"><strong>Goal against team</strong> by <strong>van Persie</strong></span>
+                            <span class="points">--10,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">45'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Agger</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon duel-won"></span>
+                            <span class="minute">45'</span>
+                            <span class="action"><strong>Duel won</strong> by <strong>Agger</strong></span>
+                            <span class="points">+3,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">44'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">44'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Agger</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon duel-won"></span>
+                            <span class="minute">42'</span>
+                            <span class="action"><strong>Duel won</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+3,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">42'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Agger</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon attempt-saved"></span>
+                            <span class="minute">41'</span>
+                            <span class="action"><strong>Attempt saved</strong> by <strong>Hart</strong></span>
+                            <span class="points">+6,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">40'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">40'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">40'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Agger</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">40'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Agger</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">40'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Hart</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">39'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Agger</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">39'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Agger</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-cross"></span>
+                            <span class="minute">38'</span>
+                            <span class="action"><strong>Successful cross</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+5,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon duel-won"></span>
+                            <span class="minute">37'</span>
+                            <span class="action"><strong>Duel won</strong> by <strong>Agger</strong></span>
+                            <span class="points">+3,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">37'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Agger</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon long-pass"></span>
+                            <span class="minute">37'</span>
+                            <span class="action"><strong>Long pass</strong> by <strong>Hart</strong></span>
+                            <span class="points">+1,500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon cross-intercepted"></span>
+                            <span class="minute">37'</span>
+                            <span class="action"><strong>Cross intercepted</strong> by <strong>Hart</strong></span>
+                            <span class="points">+5,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon attempt-saved"></span>
+                            <span class="minute">37'</span>
+                            <span class="action"><strong>Attempt saved</strong> by <strong>Hart</strong></span>
+                            <span class="points">+6,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon goal-scored-by-team"></span>
+                            <span class="minute">36'</span>
+                            <span class="action"><strong>Goal scored by team</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+10,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">36'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon long-pass"></span>
+                            <span class="minute">36'</span>
+                            <span class="action"><strong>Long pass</strong> by <strong>Hart</strong></span>
+                            <span class="points">+1,500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">36'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Hart</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">35'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon aerial-duel-won"></span>
+                            <span class="minute">35'</span>
+                            <span class="action"><strong>Aerial duel won</strong> by <strong>Agger</strong></span>
+                            <span class="points">+3,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">34'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">34'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon cross-intercepted"></span>
+                            <span class="minute">34'</span>
+                            <span class="action"><strong>Cross intercepted</strong> by <strong>Hart</strong></span>
+                            <span class="points">+5,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon long-pass"></span>
+                            <span class="minute">34'</span>
+                            <span class="action"><strong>Long pass</strong> by <strong>Hart</strong></span>
+                            <span class="points">+1,500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">33'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon duel-won"></span>
+                            <span class="minute">32'</span>
+                            <span class="action"><strong>Duel won</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+3,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">32'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">31'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon interception"></span>
+                            <span class="minute">30'</span>
+                            <span class="action"><strong>Interception</strong> by <strong>Agger</strong></span>
+                            <span class="points">+1,500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">29'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon goal"></span>
+                            <span class="minute">29'</span>
+                            <span class="action"><strong>Goal</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+100,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon goal-scored-by-team"></span>
+                            <span class="minute">29'</span>
+                            <span class="action"><strong>Goal scored by team</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+10,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon long-pass"></span>
+                            <span class="minute">29'</span>
+                            <span class="action"><strong>Long pass</strong> by <strong>Hart</strong></span>
+                            <span class="points">+1,500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">28'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li class="negative">
+                            <span class="match-icon offside"></span>
+                            <span class="minute">28'</span>
+                            <span class="action"><strong>Offside</strong> by <strong>van Persie</strong></span>
+                            <span class="points">--3,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">28'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Agger</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">28'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Hart</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">27'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">27'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">27'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">27'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">27'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Agger</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon duel-won"></span>
+                            <span class="minute">27'</span>
+                            <span class="action"><strong>Duel won</strong> by <strong>Agger</strong></span>
+                            <span class="points">+3,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">26'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Agger</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">26'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Agger</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">25'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon dribble"></span>
+                            <span class="minute">24'</span>
+                            <span class="action"><strong>Dribble</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+3,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon big-chance-created"></span>
+                            <span class="minute">24'</span>
+                            <span class="action"><strong>Big chance created</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+10,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon cross-intercepted"></span>
+                            <span class="minute">24'</span>
+                            <span class="action"><strong>Cross intercepted</strong> by <strong>Hart</strong></span>
+                            <span class="points">+5,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon interception"></span>
+                            <span class="minute">24'</span>
+                            <span class="action"><strong>Interception</strong> by <strong>Hart</strong></span>
+                            <span class="points">+1,500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon aerial-duel-won"></span>
+                            <span class="minute">23'</span>
+                            <span class="action"><strong>Aerial duel won</strong> by <strong>Agger</strong></span>
+                            <span class="points">+3,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon aerial-duel-won"></span>
+                            <span class="minute">23'</span>
+                            <span class="action"><strong>Aerial duel won</strong> by <strong>Agger</strong></span>
+                            <span class="points">+3,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">22'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">22'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon long-pass"></span>
+                            <span class="minute">22'</span>
+                            <span class="action"><strong>Long pass</strong> by <strong>Hart</strong></span>
+                            <span class="points">+1,500 Pts.</span>
+                        </li>
+                    
+                        <li class="negative">
+                            <span class="match-icon penalty-missed"></span>
+                            <span class="minute">21'</span>
+                            <span class="action"><strong>Penalty missed</strong> by <strong>van Persie</strong></span>
+                            <span class="points">--50,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">21'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Agger</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">20'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-cross"></span>
+                            <span class="minute">20'</span>
+                            <span class="action"><strong>Successful cross</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+5,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-cross"></span>
+                            <span class="minute">20'</span>
+                            <span class="action"><strong>Successful cross</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+5,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">20'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Agger</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">20'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Hart</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">19'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">19'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Hart</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">18'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">18'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-cross"></span>
+                            <span class="minute">18'</span>
+                            <span class="action"><strong>Successful cross</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+5,000 Pts.</span>
+                        </li>
+                    
+                        <li class="negative">
+                            <span class="match-icon yellow-card"></span>
+                            <span class="minute">18'</span>
+                            <span class="action"><strong>Yellow card</strong> by <strong>Hart</strong></span>
+                            <span class="points">--25,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">17'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">17'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Agger</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon long-pass"></span>
+                            <span class="minute">16'</span>
+                            <span class="action"><strong>Long pass</strong> by <strong>Hart</strong></span>
+                            <span class="points">+1,500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon goal-scored-by-team"></span>
+                            <span class="minute">15'</span>
+                            <span class="action"><strong>Goal scored by team</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+10,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon interception"></span>
+                            <span class="minute">15'</span>
+                            <span class="action"><strong>Interception</strong> by <strong>Agger</strong></span>
+                            <span class="points">+1,500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">14'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">14'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Agger</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon shot-on-target"></span>
+                            <span class="minute">13'</span>
+                            <span class="action"><strong>Shot on target</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+5,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon dribble"></span>
+                            <span class="minute">12'</span>
+                            <span class="action"><strong>Dribble</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+3,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon blocked-shot"></span>
+                            <span class="minute">12'</span>
+                            <span class="action"><strong>Blocked shot</strong> by <strong>Agger</strong></span>
+                            <span class="points">+5,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon long-pass"></span>
+                            <span class="minute">12'</span>
+                            <span class="action"><strong>Long pass</strong> by <strong>Hart</strong></span>
+                            <span class="points">+1,500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon duel-won"></span>
+                            <span class="minute">11'</span>
+                            <span class="action"><strong>Duel won</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+1,500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">11'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Hart</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">10'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">10'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon interception"></span>
+                            <span class="minute">10'</span>
+                            <span class="action"><strong>Interception</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+1,500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon goal-scored-by-team"></span>
+                            <span class="minute">10'</span>
+                            <span class="action"><strong>Goal scored by team</strong> by <strong>Agger</strong></span>
+                            <span class="points">+10,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">10'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Agger</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon long-pass"></span>
+                            <span class="minute">10'</span>
+                            <span class="action"><strong>Long pass</strong> by <strong>Hart</strong></span>
+                            <span class="points">+1,500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon attempt-saved"></span>
+                            <span class="minute">10'</span>
+                            <span class="action"><strong>Attempt saved</strong> by <strong>Hart</strong></span>
+                            <span class="points">+6,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">9'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon goal-scored-by-team"></span>
+                            <span class="minute">9'</span>
+                            <span class="action"><strong>Goal scored by team</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+10,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon defensive-clearance"></span>
+                            <span class="minute">9'</span>
+                            <span class="action"><strong>Defensive clearance</strong> by <strong>Agger</strong></span>
+                            <span class="points">+1,500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon attempt-saved"></span>
+                            <span class="minute">9'</span>
+                            <span class="action"><strong>Attempt saved</strong> by <strong>Hart</strong></span>
+                            <span class="points">+6,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon shot-on-target"></span>
+                            <span class="minute">8'</span>
+                            <span class="action"><strong>Shot on target</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+5,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">8'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Agger</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon cross-intercepted"></span>
+                            <span class="minute">8'</span>
+                            <span class="action"><strong>Cross intercepted</strong> by <strong>Hart</strong></span>
+                            <span class="points">+5,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon duel-won"></span>
+                            <span class="minute">7'</span>
+                            <span class="action"><strong>Duel won</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+3,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">7'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">7'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">7'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Agger</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon goal-scored-by-team"></span>
+                            <span class="minute">7'</span>
+                            <span class="action"><strong>Goal scored by team</strong> by <strong>Hart</strong></span>
+                            <span class="points">+10,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon duel-won"></span>
+                            <span class="minute">6'</span>
+                            <span class="action"><strong>Duel won</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+3,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">6'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">5'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon goal-scored-by-team"></span>
+                            <span class="minute">5'</span>
+                            <span class="action"><strong>Goal scored by team</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+10,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">5'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Agger</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">5'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Hart</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">4'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon defensive-clearance"></span>
+                            <span class="minute">4'</span>
+                            <span class="action"><strong>Defensive clearance</strong> by <strong>Agger</strong></span>
+                            <span class="points">+1,500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon duel-won"></span>
+                            <span class="minute">4'</span>
+                            <span class="action"><strong>Duel won</strong> by <strong>Agger</strong></span>
+                            <span class="points">+3,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">3'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">3'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">2'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon starting-11"></span>
+                            <span class="minute">1'</span>
+                            <span class="action"><strong>Starting 11</strong> by <strong>van Persie</strong></span>
+                            <span class="points">+10,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon dribble"></span>
+                            <span class="minute">1'</span>
+                            <span class="action"><strong>Dribble</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+3,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon successful-pass"></span>
+                            <span class="minute">1'</span>
+                            <span class="action"><strong>Successful pass</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+500 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon starting-11"></span>
+                            <span class="minute">1'</span>
+                            <span class="action"><strong>Starting 11</strong> by <strong>Lampard</strong></span>
+                            <span class="points">+10,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon duel-won"></span>
+                            <span class="minute">1'</span>
+                            <span class="action"><strong>Duel won</strong> by <strong>Agger</strong></span>
+                            <span class="points">+3,000 Pts.</span>
+                        </li>
+                    
+                        <li>
+                            <span class="match-icon starting-11"></span>
+                            <span class="minute">1'</span>
+                            <span class="action"><strong>Starting 11</strong> by <strong>Hart</strong></span>
+                            <span class="points">+10,000 Pts.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="social">
+            <div class="container">
+                <article class="sheets">
+                    <a href="#" class="prev">Previous</a>
+                    <a href="#" class="next">Next</a>
+                    <nav>
+                        <ul><li class=""></li><li class="active"></li><li class=""></li></ul>
+                    </nav>
+                    <div style="padding-bottom: 716px; position: relative; top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 878px; height: 0px;" class="viewport iosSlider">
+                        <div style="position: relative; cursor: move; transform: matrix(1, 0, 0, 1, -3512, 0); width: 2634px;" class="sheets-container slider">
+                            <section style="position: absolute; top: 0px; transform: matrix(1, 0, 0, 1, 2634, 0); width: 878px;" class="cards slide">
+                                <header>
+                                    <h1>Bring your friend.</h1>
+                                    <h2>And make a manager out of him.</h2>
+                                </header>
+                                <div class="friend f1">
+                                    <div class="img"><img src="Ultimate%20Manager_files/social-cards-portrait1.jpg"></div>
+                                    <div class="label">
+                                        <strong>Your friend</strong>
+                                        284,000 Pts.
+                                    </div>
+                                </div>
+                                <div class="you">
+                                    <div class="img"><img src="Ultimate%20Manager_files/social-cards-you.jpg"></div>
+                                    <div class="label">
+                                        <strong>You</strong>
+                                        171,500 Pts.
+                                    </div>
+                                </div>
+                                <div class="friend f2">
+                                    <div class="img"><img src="Ultimate%20Manager_files/social-cards-portrait2.jpg"></div>
+                                    <div class="label">
+                                        <strong>Other friend</strong>
+                                        171,500 Pts.
+                                    </div>
+                                </div>
+                            </section>
+                            <section style="position: absolute; top: 0px; transform: matrix(1, 0, 0, 1, 3512, 0); width: 878px;" class="group slide">
+                                <header>
+                                    <h1>Compete in groups.</h1>
+                                    <h2>Beat him in your private group.</h2>
+                                </header>
+                                <ul>
+                                    <li>
+                                        <span class="portrait"><img src="Ultimate%20Manager_files/social-wall-you.jpg"></span>
+                                        <span class="name">You</span>
+                                        <span class="points">2,758,500 Pts.</span>
+                                    </li>
+                                    <li>
+                                        <span class="portrait"><img src="Ultimate%20Manager_files/social-wall-portrait1.jpg"></span>
+                                        <span class="name">Steven Garamond</span>
+                                        <span class="points">1,921,000 Pts.</span>
+                                    </li>
+                                    <li>
+                                        <span class="portrait"><img src="Ultimate%20Manager_files/social-wall-portrait2.jpg"></span>
+                                        <span class="name">Daniel Smith</span>
+                                        <span class="points">1,733,500 Pts.</span>
+                                    </li>
+                                    <li>
+                                        <span class="portrait"><img src="Ultimate%20Manager_files/social-wall-portrait3.jpg"></span>
+                                        <span class="name">Michael Lewis</span>
+                                        <span class="points">1,646,000 Pts.</span>
+                                    </li>
+                                    <li>
+                                        <span class="portrait"><img src="Ultimate%20Manager_files/social-wall-portrait4.jpg"></span>
+                                        <span class="name">Gina Harris</span>
+                                        <span class="points">1,589,500 Pts.</span>
+                                    </li>
+                                </ul>
+                            </section>
+                            <section style="position: absolute; top: 0px; transform: matrix(1, 0, 0, 1, 4390, 0); width: 878px;" class="wall slide">
+                                <header>
+                                    <h1>Brag about it.</h1>
+                                    <h2>Let him know you won, on the wall.</h2>
+                                </header>
+                                <div class="bubble post">
+                                    <figure><img src="Ultimate%20Manager_files/social-wall-you.jpg"></figure>
+                                    <strong>You</strong>
+                                    <time>3 hours ago</time>
+                                    <p>Wow, what an incredible round!. Didn't imagine Kagawa had it in him, but I am happy I picked him over lazy legs.</p>
+                                </div>
+                                <div class="bubble reply">
+                                    <figure><img src="Ultimate%20Manager_files/social-wall-portrait3.jpg"></figure>
+                                    <strong>Michael Lewis</strong>
+                                    <time>2 hours ago</time>
+                                    <p>Yeah, that was amazing. Great job this round!</p>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="prices">
+            <div class="wrap">
+                <div class="container">
+                    <header>
+                        <h1>Plans.</h1>
+                        <h2>Which one fits you?</h2>
+                    </header>
+                    <div class="packages">
+                        <div class="package">
+                            <div class="header">
+                                <h1>Basic</h1>
+                                <p class="tagline">Sir Alex who?</p>
+                            </div>
+                            <p class="price">€ 1.99 per month</p>
+                            <ul class="features">
+                                <li>Bundesliga or Premier League</li>
+                                <li>1 team</li>
+                            </ul>
+                        <div class="btn-container">
+                                <a href="https://www.ultimatemanager.com/game/team/new" class="btn btn-gray bigger">Buy Basic</a>
+                            </div>
+                        </div>
+                        <div class="package">
+                            <div class="header-banner">
+                                <a href="https://www.ultimatemanager.com/game/team/new" class="header-banner-text">30 day free trial</a>
+                            </div>
+                            <div class="header">
+                                <h1>Extra</h1>
+                                <p class="tagline">Let's play!</p>
+                            </div>
+                            <p class="price">€ 2.99 per month</p>
+                            <ul class="features">
+                                <li>Bundesliga or Premier League</li>
+                                <li>3 teams</li>
+                            </ul>
+                            <div class="btn-container">
+                                <a href="https://www.ultimatemanager.com/game/team/new" class="btn btn-gray bigger">Buy Extra</a>
+                            </div>
+                        </div>
+                        <div class="package highlight">
+                            <div class="header-banner">
+                                <a href="https://www.ultimatemanager.com/game/team/new" class="header-banner-text">30 day free trial</a>
+                            </div>
+                            <div class="header">
+                                <h1>Ultimate</h1>
+                                <p class="tagline">I am the special one.</p>
+                            </div>
+                            <p class="price">€ 4.99 per month</p>
+                            <ul class="features">
+                                <li>Bundesliga and Premier League</li>
+                                <li>Unlimited teams</li>
+                            </ul>
+                            <div class="btn-container">
+                                <a href="https://www.ultimatemanager.com/game/team/new" class="btn bigger btn-highlight">Try Ultimate</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="team">
+            <div class="wrap">
+                <div class="container">
+                    <header>
+                        <h1>Team.</h1>
+                        <h2>We love football.</h2>
+                    </header>
+                    <div class="profiles">
+                        <div class="profile">
+                            <img src="Ultimate%20Manager_files/picture_002.jpeg" class="profile-picture-large">
+                            <div class="description">
+                                <h1>Jarl Rosenlykke</h1>
+                                <h2>Captain &amp; CEO</h2>
+                            </div>
+                        </div>
+                        <div class="profile">
+                            <img src="Ultimate%20Manager_files/picture_004.jpeg" class="profile-picture-large">
+                            <div class="description">
+                                <h1>Morten Kristensen</h1>
+                                <h2>Coach</h2>
+                            </div>
+                        </div>
+                        <div class="profile">
+                            <img src="Ultimate%20Manager_files/picture_003.jpeg" class="profile-picture-large">
+                            <div class="description">
+                                <h1>Sebastien Requiem</h1>
+                                <h2>Referee &amp; Backend developer</h2>
+                            </div>
+                        </div>
+                        <div class="profile">
+                            <img src="Ultimate%20Manager_files/picture.jpeg" class="profile-picture-large">
+                            <div class="description">
+                                <h1>Bo Stendal Sørensen</h1>
+                                <h2>Waterboy &amp; Frontend developer</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <header>
+                        <h1>Open positions.</h1>
+                        <h2>Put you face up there.</h2>
+                    </header>
+                    <ul style="list-style: none; padding-left: 0px; margin-top: 0px; text-align: center;font-size: 18px; font-weight: 300;">
+                        <!-- <li><a href="#">Backend developer</a></li> -->
+                        <li><a href="http://ge.tt/206DEVm/v/1">Frontend developer</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section id="contact">
+            <div class="wrap">
+                <div class="container">
+                    <header>
+                        <h1>Contact.</h1>
+                        <h2>We answer snail mail too.</h2>
+                    </header>
+                    <div class="contact-details">
+                        <div class="address">
+                            <p>Ultimate Manager ApS<br>
+                                Kristen Bernikows Gade 6<br>
+                                DK-1105 Copenhagen<br>
+                                Denmark</p>
+                            <p><a href="mailto:support@ultimatemanager.com">support@ultimatemanager.com</a></p>
+                        </div>
+                        <img src="Ultimate%20Manager_files/staticmap.png" class="map">
+                    </div>
+                </div>
+                <div style="margin-top: 75px; text-align: center;"><a href="http://mixpanel.com/f/partner"><img src="Ultimate%20Manager_files/badge_blue.png" alt="Mobile Analytics"></a></div>
+            </div>
+        </section>
+
+        <script src="Ultimate%20Manager_files/jquery-1.js"></script>
+        <script src="Ultimate%20Manager_files/underscore-min.js"></script>
+        <script src="Ultimate%20Manager_files/backbone-min.js"></script>
+        <script src="Ultimate%20Manager_files/three.js"></script>
+        <script src="Ultimate%20Manager_files/jquery_002.js"></script>
+        <script src="Ultimate%20Manager_files/jquery.js"></script>
+        <script src="Ultimate%20Manager_files/bootstrap.js"></script>
+        <script src="Ultimate%20Manager_files/main.js"></script>
+        <script>
+        GZ = { helpers: {} };
+        </script>
+        <script src="Ultimate%20Manager_files/moment.js"></script>
+        <script src="Ultimate%20Manager_files/i18n.js"></script>
+        <script>
+        App.Config = new Backbone.Model({
+            fileRoot: '/landing-page',
+            league: "premier-league"
+        });
+        GZ.helpers.i18n.addTranslation('en_US', {});
+        GZ.helpers.i18n.setLocale('en_US');
+
+        // Dynamic strings not translated in the game.
+        GZ.helpers.i18n.gettext("Goal scored by team");
+
+        if (navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPod/i)) {
+            $('meta[name=viewport]').attr('content', 'width=device-width');
+        }
+        </script>
+        <script type="text/javascript">
+          var _gaq = _gaq || [],
+              parts = location.hostname.split('.').reverse(),
+              domain = parts[1]+"."+parts[0];
+          _gaq.push(['_setAccount', 'UA-32241781-1']);
+          _gaq.push(['_setDomainName', domain]);
+          _gaq.push(['_setAllowLinker', true]);
+          _gaq.push(['_setCustomVar', 3, 'Build version', 'v2.0.15', 3]);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        </script>
+        <!-- start Mixpanel --><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f);b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==
+        typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");for(g=0;g<i.length;g++)f(c,i[g]);
+        b._i.push([a,e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
+        mixpanel.init("587b60e02675d53cb43d6e56ab09398a", {cookie_name: '587b60e02675d53cb43d6e56ab09398a'});
+        mixpanel.register_once({ 'Initial referrer': document.referrer });
+        mixpanel.track('Page view', {'Page': 'Landing page', 'Language': 'en_US'});
+        </script><!-- end Mixpanel -->
+    
+</body></html>
