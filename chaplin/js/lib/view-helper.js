@@ -16,9 +16,9 @@ define([
   });
 
   // Create select box
+  // @author Jon
   Handlebars.registerHelper('select', function(pairs, options) {
     return "<select>" + _(pairs).map(function(pair) {
-      console.log(pair)
       return "<option value='" + pair[1] + "'>" + pair[0] + "</option>";
     }).join('') + "</select>";
   });
