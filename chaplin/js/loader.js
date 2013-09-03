@@ -1,7 +1,7 @@
 // Configure the AMD module loader
 requirejs.config({
   // The path where your JavaScripts are located
-  baseUrl: '.',
+  baseUrl: 'js',
   // Specify the paths of vendor libraries
   paths: {
     jquery: '../bower_components/jquery/jquery',
