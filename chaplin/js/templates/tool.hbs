@@ -1,0 +1,12 @@
+<form action="#/" method="get">
+  <fieldset>
+    <legend class="label">{{status}}</legend>
+    {{#select select}}
+    {{/select}}
+    <label>Sort: <input class="sort" type="search"/></label>
+    <label>Filter: <input class="filter" type="search" /></label>
+    <label>Display: <input class="display" type"text" /></label>
+    <input class="submit" type="submit" value="Go!"/>
+    <pre class="result">{{output}}</pre>{{!-- output model as string (usually JSON) --}}
+  </fieldset>
+</form>

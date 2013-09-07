@@ -4,16 +4,15 @@ define([
 ], function(Chaplin, Model) {
   'use strict';
 
-  var HelloWorld = Model.extend({
+  var Actions = Model.extend({
     defaults: {
-      message: 'Hello World!'
+      message: "Hello from Actions"
     }
-
     // ,initialize: function(attributes, options) {
     //  Model.prototype.initialize.apply(this, arguments);
     //  console.debug('HelloWorld#initialize');
     // }
   });
 
-  return HelloWorld;
+  return Actions;
 });
