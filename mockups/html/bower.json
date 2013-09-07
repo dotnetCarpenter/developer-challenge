@@ -1,0 +1,26 @@
+{
+  "name": "mockup",
+  "version": "0.1.0",
+  "homepage": "https://github.com/dotnetCarpenter/developer-challenge",
+  "authors": [
+    "dotnetCarpenter <jon.ronnenberg@gmail.com>"
+  ],
+  "description": "Mockup(s) for Developer Challenge",
+  "main": "game.html",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "d3": "~3.3.3",
+    "requirejs": "~2.1.8",
+    "backbone": "~1.0.0",
+    "lodash": "~1.3.1",
+    "jquery": "~2.0.3"
+  }
+}
