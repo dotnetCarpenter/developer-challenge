@@ -25,5 +25,5 @@ requirejs.config({
 // Bootstrap the application
 require(['routes', 'backbone'], function(routes, Backbone) {
   new routes();
-  Backbone.history.start();
+  Backbone.history.start({  pushState: false, root: '/' });
 });

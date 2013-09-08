@@ -1,10 +1,19 @@
 RewriteEngine On
+#RewriteLog %{REQUEST_FILENAME}"htaccess.log"
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_URI} !index
-RewriteRule (.*) index.html [L]
+RewriteCond %{HTTP_ACCEPT} ^text/html.+
+RewriteRule (.*) http://localhost:8888/mockups/html/ [L]
 
-# RewriteCond %{ENV:REDIRECT_STATUS} 200
-# RewriteRule .* - [L]
+# RewriteCond %{HTTP_ACCEPT} "\*/\*"
+# RewriteCond %{REQUEST_FILENAME} (js)$
+# RewriteCond %{SCRIPT_URI} bower_components
+# RewriteRule .* .*
 
-#ErrorDocument 404 index
+#RewriteCond %{REQUEST_URI} !index
+#RewriteRule (.*) /mockups/html/index.html [L]
+
+# # RewriteCond %{ENV:REDIRECT_STATUS} 200
+# # RewriteRule .* - [L]
+
+# #ErrorDocument 404 index

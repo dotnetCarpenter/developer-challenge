@@ -20,7 +20,7 @@ define(['backbone'], function(Backbone) {
       l("game::" + matchid + " with player::" + playerid);
     },
     p404: function() {
-      l("not found");
+      l("404 not found");
     }
   });
 });
