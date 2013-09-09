@@ -1,14 +1,36 @@
-RewriteEngine On
+#http://www.askapache.com/htaccess/mod_rewrite-variables-cheatsheet.html
+
+# Change log path
 #RewriteLog %{REQUEST_FILENAME}"htaccess.log"
+
+DirectoryIndex structure.html
+
+ExpiresActive On
+ExpiresByType application/javascript "access plus 1 year"
+
+
+RewriteEngine On
+# Redirect requests to missing file/folder for HTML to http://localhost:8888/mockups/html/index.html
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteCond %{HTTP_ACCEPT} ^text/html.+
+# RewriteRule . http://localhost:8888/mockups/html/index.html [L]
+
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{HTTP_ACCEPT} ^text/html.+
-RewriteRule (.*) http://localhost:8888/mockups/html/ [L]
+RewriteRule . http://localhost:8888/mockups/html/structure.html [L]
 
+# Always point to the correct path if we have js or bower_components in the path
+RewriteCond %{REQUEST_URI} (js/|bower_components/)
+RewriteRule ^.*/((js/|bower_components/).*) $1 [L]
+
+
+# just stuff
 # RewriteCond %{HTTP_ACCEPT} "\*/\*"
 # RewriteCond %{REQUEST_FILENAME} (js)$
 # RewriteCond %{SCRIPT_URI} bower_components
-# RewriteRule .* .*
+# RewriteRule fucked
 
 #RewriteCond %{REQUEST_URI} !index
 #RewriteRule (.*) /mockups/html/index.html [L]

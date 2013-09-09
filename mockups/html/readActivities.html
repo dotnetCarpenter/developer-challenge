@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Read Activities</title>
+  <style>body { font-family: sans-serif; }</style>
+</head>
+<body>
+  <form action="#/" method="get">
+  <fieldset>
+    <legend class="label">Read Activities</legend>
+    <label>Sort: <input class="sort" type="search" tabindex="1"/></label>
+    <label>Filter: <input class="filter" type="search" tabindex="2" /></label>
+    <label>Display: <input class="display" type"text" tabindex="3" /></label>
+    <pre class="result"></pre>
+</form>
+<script src="bower_components/jquery/jquery.min.js"></script>
+<script src="bower_components/lodash/dist/lodash.underscore.min.js"></script>
+<script src="bower_components/backbone/backbone-min.js"></script>
+<script>
+  jQuery(function($) {
+    "use strict";
+
+    var ActivityModel         = Backbone.Model.extend({}),
+        ActivitiesCollection  = Backbone.Collection.extend({
+          model: ActivityModel,
+          url: "/data/actions.json"
+        }),
+        ActivityView          = Backbone.View.extend({
+          el: "fieldset",
+          tagName: "fieldset",
+
+          result: $(".result"),
+
+          initialize: function() {
+            var self = this,
+                events = [$(".sort"),
+                          $(".filter"),
+                          $(".display")];
+            events.forEach(function(el) {
+              el.on(
+                "keydown",
+                _.debounce(
+                  action,
+                  500
+                )
+              );
+            });
+
+            function action(/*event*/) {
+              // console.log("updateCol", arguments);
+              self.options.target[this.className](this.value)
+            }
+          },
+
+          render: function(collection) {
+            console.log("render!");
+            this.result.html( JSON.stringify(collection.toJSON(), null, " ") );
+            return this;
+          } 
+        });
+
+    function Tool() {
+      _.extend(
+        this, {
+          collection: new ActivitiesCollection(),
+          view: new ActivityView({
+            target: this
+          })
+        }
+      );
+
+      //this.listenTo(this.collection, "fetch:complete", this.update);
+
+      this.collection.fetch()
+        .done( _.bind(this.update, this) );
+    }    
+    Tool.prototype = {
+      update: function(/*data, status, jxhr*/) {
+        this.view.render(this.collection);
+      },
+      // die: function() {
+      //   this.stopListening();
+      // },
+      filter: function(value) {
+        console.log("filter");
+        console.dir(
+          this.collection.filter(function(collection) {
+            return _(collection.attributes).contains(value);
+          })
+        );
+      },
+      sort: function() {
+        console.log("sort");
+      },
+      display: function(value) {
+        console.log("display");
+        // this.collection.omit(value)
+        // this.update();
+      }
+    };
+
+    var tool = new Tool();
+  });
+</script>
+</body>
+</html>

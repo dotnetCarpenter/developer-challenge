@@ -23,7 +23,10 @@ requirejs.config({
 });
 
 // Bootstrap the application
-require(['routes', 'backbone'], function(routes, Backbone) {
-  new routes();
-  Backbone.history.start({  pushState: false, root: '/' });
+require(['routes', 'backbone'], function(Routes, Backbone) {
+  "use strict";
+
+  /*var r = */new Routes();
+  //console.dir(r);
+  Backbone.history.start({  pushState: false, root: '/' }); // options are actually defaults in backbone already
 });
