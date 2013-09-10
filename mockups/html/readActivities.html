@@ -9,53 +9,79 @@
   <form action="#/" method="get">
   <fieldset>
     <legend class="label">Read Activities</legend>
-    <label>Sort: <input class="sort" type="search" tabindex="1"/></label>
-    <label>Filter: <input class="filter" type="search" tabindex="2" /></label>
-    <label>Display: <input class="display" type"text" tabindex="3" /></label>
+    <label>Sort: <input class="sort" type="text" tabindex="1"/></label>
+    <label>Filter: <input class="filter" type="text" tabindex="2" /></label>
+    <label>Remove: <input class="omit" type="text" tabindex="3" placeHolder="" /></label>
+    <input type="reset"/>
     <pre class="result"></pre>
 </form>
 <script src="bower_components/jquery/jquery.min.js"></script>
 <script src="bower_components/lodash/dist/lodash.underscore.min.js"></script>
-<script src="bower_components/backbone/backbone-min.js"></script>
+<!--<script src="bower_components/underscore/underscore-min.js"></script>-->
+<script src="bower_components/backbone/backbone.js"></script>
 <script>
   jQuery(function($) {
     "use strict";
 
-    var ActivityModel         = Backbone.Model.extend({}),
-        ActivitiesCollection  = Backbone.Collection.extend({
+    var ActivityModel = Backbone.Model.extend({}),
+        ActivitiesCollection = Backbone.Collection.extend({
           model: ActivityModel,
-          url: "/data/actions.json"
+          url: "/data/actions.json",
+          setTo: function(collection) {
+            if(!collection.models)
+              throw "setTo only accept a collection";
+            this.set(collection.models);
+            return this; // allow chaining
+          },
+          set: function() {
+            Backbone.Collection.prototype.set.apply(this, arguments);
+            this.trigger("change", arguments[0]); // easier than using the "all" event
+            return this;
+          }
         }),
-        ActivityView          = Backbone.View.extend({
+        ActivityView = Backbone.View.extend({
           el: "fieldset",
           tagName: "fieldset",
 
           result: $(".result"),
 
-          initialize: function() {
-            var self = this,
-                events = [$(".sort"),
-                          $(".filter"),
-                          $(".display")];
-            events.forEach(function(el) {
-              el.on(
-                "keydown",
-                _.debounce(
-                  action,
-                  500
-                )
-              );
-            });
-
-            function action(/*event*/) {
-              // console.log("updateCol", arguments);
-              self.options.target[this.className](this.value)
-            }
+          events: {
+            "click input[type='reset']": "reset",
+            "keyup input[type='text']": "debounceAction"
           },
+
+          // initialize: function() {
+          //   var self = this,
+          //       events = [$(".sort"),
+          //                 $(".filter"),
+          //                 $(".display")];
+          //   events.forEach(function(el) {
+          //     el.on("keydown", _.debounce(action, 500) );
+          //   });
+
+          //   function action(/*event*/) {
+          //     // console.log("updateCol", arguments);
+          //     self.options.target[this.className](this.value)
+          //   }
+          // },
+
+          reset: function() {
+            // reset is the same as filter without any value
+            this.$el.find(".filter").keyup();
+          },
+
+          action: function(event) {
+            var el = event.target;
+            this.options.target[el.className](el.value);
+          },
+
+          debounceAction: _.debounce(function(event) {
+            this.action(event);
+          }, 500),
 
           render: function(collection) {
             console.log("render!");
-            this.result.html( JSON.stringify(collection.toJSON(), null, " ") );
+            this.result.html( JSON.stringify(collection, null, " ") );
             return this;
           } 
         });
@@ -64,41 +90,65 @@
       _.extend(
         this, {
           collection: new ActivitiesCollection(),
+          currentCollection: new ActivitiesCollection(),
           view: new ActivityView({
             target: this
           })
         }
       );
 
-      //this.listenTo(this.collection, "fetch:complete", this.update);
+      this.currentCollection.listenTo(this.collection, "sync", _.bind(function() {
+        this.currentCollection.setTo(this.collection);
+      }, this));
+      this.listenTo(this.currentCollection, "change", this.update);
 
-      this.collection.fetch()
-        .done( _.bind(this.update, this) );
+      this.collection.fetch({ error: errorLogger });
+
+      function errorLogger() {
+        console.log(arguments);
+      }
     }    
-    Tool.prototype = {
-      update: function(/*data, status, jxhr*/) {
-        this.view.render(this.collection);
+    Tool.prototype = _.extend({
+
+      update: function(data/*, status, jxhr*/) {
+        this.view.render(data);
       },
-      // die: function() {
-      //   this.stopListening();
-      // },
+      die: function() {
+        this.stopListening();
+      },
       filter: function(value) {
         console.log("filter");
-        console.dir(
-          this.collection.filter(function(collection) {
-            return _(collection.attributes).contains(value);
-          })
-        );
+        if(value) {
+          this.currentCollection.set(this.collection.filter(function(collection) {
+            return _.contains(collection.attributes, value);
+          }));
+        } else {
+          this.currentCollection.setTo(this.collection);
+        }        
       },
-      sort: function() {
+      sort: function(value) {
         console.log("sort");
+        var col = this.currentCollection;
+        var comparator = function(a,b) {
+          //console.log(a.get(value) > b.get(value));
+          var val1 = a.get(value),
+              val2 = b.get(value)
+          return val1 == val2 ? 0 : val1 < val2 ? -1 : 1;
+        };
+        col.models.sort(comparator);
+        col.trigger("change", col);
       },
-      display: function(value) {
-        console.log("display");
-        // this.collection.omit(value)
-        // this.update();
+      omit: function(value) {
+        console.log("omit");
+        var col = this.currentCollection;
+        value = value.split(" ");
+        var newCol = col.map(function(model) {
+          return model.omit(value);
+        });
+        if(newCol[0])
+          col.set(newCol, { merge: false });
       }
-    };
+    }, Backbone.Events);
 
     var tool = new Tool();
   });
