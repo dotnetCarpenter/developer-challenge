@@ -27,8 +27,16 @@
           .entries(data);
         console.dir(data);*/
         // remove error actions
+        var st = same("minutes");
         data = _.filter(data, function(d) {
                   return !d.is_error;
+                })// add 1 minute to actions happening at the exact same time
+                .map(function(d, i, all) {
+                  if(i !== 0 && i !== all.length-1) {
+                    while( st(d, all[i+1]) || st(d, all[i-1]))
+                      add1min(d);
+                  }
+                  return d;
                 });
 
         var T       = _.max(data, function(d) {
@@ -70,6 +78,14 @@
                           d = d.data;
                           return d.action_name + " - " + new Date(d.timestamp).toLocaleTimeString();
                         });
+          function same(prop) {
+            return function(v1, v2) {
+              return v1[prop] === v2[prop];
+            }
+          }
+          function add1min(d) {
+            return d.minutes += 1, d;
+          }
           function radiant(d) {
             return (d.minutes/T) * radian2;
           }
