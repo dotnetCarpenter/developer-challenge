@@ -3,15 +3,18 @@
 <head>
   <meta charset="utf-8">
   <title>Read Activities</title>
-  <style>body { font-family: sans-serif; }</style>
+  <style>
+    body { font-family: sans-serif; }
+    input[type="text"] { width: 20em; }
+  </style>
 </head>
 <body>
   <form action="#/" method="get">
   <fieldset>
-    <legend class="label">Read Activities</legend>
-    <label>Sort: <input class="sort" type="text" tabindex="1"/></label>
-    <label>Filter: <input class="filter" type="text" tabindex="2" /></label>
-    <label>Remove: <input class="omit" type="text" tabindex="3" placeHolder="" /></label>
+    <legend class="label">Read Activities (<span></span>)</legend>
+    <label>Sort: <input class="sort" type="text" tabindex="1" placeHolder="single value to sort by"/></label>
+    <label>Filter: <input class="filter" type="text" tabindex="2" placeHolder="comma space seperated properties to filter by" /></label>
+    <label>Remove: <input class="omit" type="text" tabindex="3" placeHolder="space seperated properties to remove" /></label>
     <input type="reset"/>
     <pre class="result"></pre>
 </form>
@@ -44,6 +47,7 @@
           tagName: "fieldset",
 
           result: $(".result"),
+          resultCount: $("legend span"),
 
           events: {
             "click input[type='reset']": "reset",
@@ -81,6 +85,7 @@
 
           render: function(collection) {
             console.log("render!");
+            this.resultCount.html(collection.length);
             this.result.html( JSON.stringify(collection, null, " ") );
             return this;
           } 
@@ -119,10 +124,11 @@
       filter: function(value) {
         console.log("filter");
         if(value) {
+          value = value.split(", ");
           this.currentCollection.set(this.collection.filter(function(collection) {
-            return _.contains(collection.attributes, value);
+            return _.every(value, function(val) { return _.contains(collection.attributes, val); })
           }));
-        } else {
+        } else { // reset
           this.currentCollection.setTo(this.collection);
         }        
       },
