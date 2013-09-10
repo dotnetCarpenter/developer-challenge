@@ -26,6 +26,11 @@
           .key(function(d) { return d.period })
           .entries(data);
         console.dir(data);*/
+        // remove error actions
+        data = _.filter(data, function(d) {
+                  return !d.is_error;
+                });
+
         var T       = _.max(data, function(d) {
                         return d.minutes;
                       }).minutes,
@@ -58,7 +63,8 @@
                         .attr("d", arc)
                         .append("title")
                         .text(function(d) {
-                          return d.data.action_name;
+                          d = d.data;
+                          return d.action_name + " - " + new Date(d.timestamp).toLocaleTimeString();
                         });
             // group.append("path")
             //   .data( pie(data) )
@@ -70,7 +76,7 @@
             //   .attr("fill", function(d, i) { return color(i); })
             //   .attr("d", arc);
         function comparator(a,b) {
-          console.log(a.timestamp < b.timestamp);
+          //console.log(a.timestamp < b.timestamp);
           var val1 = a.timestamp,
               val2 = b.timestamp;
           return val1 == val2 ? 0 : val1 < val2 ? -1 : 1;
