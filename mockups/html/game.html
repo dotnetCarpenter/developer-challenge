@@ -15,7 +15,7 @@
   <h1>Game Overview</h1>
   <div id="match" class="graph"></div>
   <script src="bower_components/lodash/dist/lodash.underscore.min.js"></script>
-  <script src="bower_components/d3/d3.min.js"></script>
+  <script src="bower_components/d3/d3.js"></script>
   <script>
     (function(doc, d3) {
       "use strict";
@@ -47,7 +47,7 @@
             radian2 = Math.PI * 2,
             pie     = d3.layout.pie()
                         .value(function(d) {
-                          return (d.minutes/T) * radian2;
+                          return d.minutes;//(d.minutes/T) * radian2;
                         })
                         .sort(comparator),
             arc     = d3.svg.arc()
@@ -60,12 +60,19 @@
                       .enter()
                         .append("path")
                         .attr("fill", function(d, i) { return color(i); })
-                        .attr("d", arc)
+                        .attr("d", function(d) {
+                          d.startAngle = radiant(d.data);
+                          d.endAngle = radiant({ minutes: d.data.minutes + 1 });
+                          return arc(d);
+                        })
                         .append("title")
                         .text(function(d) {
                           d = d.data;
                           return d.action_name + " - " + new Date(d.timestamp).toLocaleTimeString();
                         });
+          function radiant(d) {
+            return (d.minutes/T) * radian2;
+          }
             // group.append("path")
             //   .data( pie(data) )
             //   .value(function(d) {
