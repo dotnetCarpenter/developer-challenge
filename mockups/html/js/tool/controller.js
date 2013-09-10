@@ -1,5 +1,5 @@
 /**
- * Tool - a 
+ * Tool - research architecture
  * @version: 2013.9.1
  */
 
