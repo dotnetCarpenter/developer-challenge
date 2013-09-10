@@ -6,7 +6,7 @@
     "dotnetCarpenter <jon.ronnenberg@gmail.com>"
   ],
   "description": "Mockup(s) for Developer Challenge",
-  "main": "game.html",
+  "main": "readActivities.html",
   "license": "MIT",
   "private": true,
   "ignore": [
