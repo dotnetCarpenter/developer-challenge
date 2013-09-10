@@ -3,11 +3,20 @@
 <head>
   <title>Mockup of structure</title>
   <style>
-    div {
-      -webkit-transition: all, -webkit-transform 0.5s;
+    div{
+    /*transition*/
+    -webkit-transition:all, -webkit-transform 0.4s;
+       -moz-transition:   all, -moz-transform 0.4s;
+         -o-transition:     all, -o-transform 0.4s;
+            transition:        all, transform 0.4s;
     }
-    .hidden {
-      -webkit-transform: translateX(-100%);
+    .hidden{
+    /*transform*/
+    -webkit-transform:translateX(-100%);
+       -moz-transform:translateX(-100%);
+        -ms-transform:translateX(-100%);
+         -o-transform:translateX(-100%);
+            transform:translateX(-100%);
     }
     .show {
       /* dunno */

@@ -31,6 +31,7 @@ define(["backbone"], function(Backbone) {
       this.undelegateEvents();
       this.$el.empty();
       this.stopListening();
+      this.trigger("removed");
       return this;
     }
   });

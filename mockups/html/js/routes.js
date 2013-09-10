@@ -1,4 +1,4 @@
-define(['backbone'], function(Backbone) {
+define(['backbone', 'jquery'], function(Backbone, $) {
   'use strict';
 
   function router() {
@@ -8,18 +8,31 @@ define(['backbone'], function(Backbone) {
      */
     var controllerCache = {
       currentController: undefined,
-      deactivate: function(controller) {
-        controller.deactivate();
+      deactivate: function() {
+        var deferred = new $.Deferred();
+        if(this.currentController) {
+          this.currentController.deactivate(deferred);
+        } else {
+          deferred.resolve();
+        }
+        return deferred.promise();
       },
       activate: function(name, params) {
         var self = this;
         return function(Controller) {
           if(!controllerCache[name])
             controllerCache[name] = new Controller(params);
-          console.dir(controllerCache[name]);
+// console.dir(controllerCache[name]);
           self.currentController = controllerCache[name];
           controllerCache[name].activate();
         }
+      },
+      load: function(name, defer, activator) {
+        require([name + '/controller'], function(Controller) {
+          defer.done(function() {
+            activator(Controller);
+          })
+        });
       }
     };
     // The routes for the application
@@ -33,17 +46,18 @@ define(['backbone'], function(Backbone) {
       },
       tool: function() {
         console.log("tool");
-        if(controllerCache.currentController) // could easily be refactored into controllerCache
-          controllerCache.deactivate(controllerCache.currentController);
-        require(["tool/controller"], controllerCache.activate("tool"));
+
+        var deativator = controllerCache.deactivate();  // deactive previous controller and get a deferred object
+        controllerCache.load("tool", deativator, controllerCache.activate("tool"));  // require controller and activate once deativation is complete
+
         // navigate like this:
         // this.navigate("game/"+ 3826 + "/" + 40236, { trigger: true });
       },
       top: function(howmany) {
         console.log("top::" + howmany);
-        if(controllerCache.currentController) // could easily be refactored into controllerCache
-          controllerCache.deactivate(controllerCache.currentController);
-        require(["top/controller"], controllerCache.activate("top", howmany));
+
+        var deativator = controllerCache.deactivate();  // deactive previous controller and get a deferred object
+        controllerCache.load("top", deativator, controllerCache.activate("top"));  // require controller and activate once deativation is complete
       },
       game: function(matchid, playerid) {
         console.log("game::" + matchid + " with player::" + playerid);
