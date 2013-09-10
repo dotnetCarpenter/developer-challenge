@@ -44,7 +44,6 @@ define([
               config.data,
               byValue( dataurl )
           )));
-      
       return this.collections[ String(pair[0]).toLowerCase() + 'List'];
       // this.model = this.collections[ String(pair[0]).toLowerCase() + 'List'];
       // this.model.url = pair[1]; // this is unreasonable(!)
