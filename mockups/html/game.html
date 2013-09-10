@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Game Overview</title>
+  <style>
+    body { font-family: sans-serif; }
+    .graph {
+      width: 600px;
+      height: 338px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Game Overview</h1>
+  <div id="match" class="graph"></div>
+  <script src="bower_components/d3/d3.min.js"></script>
+  <script>
+    (function(doc, d3) {
+      "use strict";
+      d3.json("/data/d3.mockup.json", function(error, data) {
+        if (error) return console.warn(error);
+
+        /*data = d3.nest() // divide data into 2 arrays by FirstHalf, SecondHalf
+          .key(function(d) { return d.period })
+          .entries(data);
+        console.dir(data);*/
+        var width   = 600,
+            height  = 338,
+            canvas  = d3.select("#match")
+                        .append("svg")
+                        .attr("width", width)
+                        .attr("height", height)
+                      .append("g")
+                        .attr("transform", "translate(" + width/2 + ", " + height/2 + ")"),
+            color   = d3.scale.category20(),                        
+            radius  = Math.min(width, height) / 2,
+            r360    = Math.PI * 2,
+            pie     = d3.layout.pie()
+                        .value(function(d) {
+                          return d.minutes;//convert later
+                        }),
+            arc     = d3.svg.arc()
+                        .innerRadius(radius - 40)
+                        .outerRadius(radius)
+                        .startAngle(0),/*
+                        .endAngle(r360),*/
+            path    = canvas.selectAll("path")
+                        .data(pie(data))                        
+                      .enter()
+                        .append("path")
+                        .attr("fill", function(d, i) { return color(i); })
+                        .attr("d", arc);
+            // group.append("path")
+            //   .data( pie(data) )
+            //   .value(function(d) {
+            //     return d.minutes;//convert later
+            //   })
+            // .enter()
+            //   .append("path")
+            //   .attr("fill", function(d, i) { return color(i); })
+            //   .attr("d", arc);
+      });
+    }(document, d3))
+  </script>
+</body>
+</html>
