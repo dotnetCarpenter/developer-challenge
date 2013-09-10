@@ -3,23 +3,18 @@ define(["backbone"], function(Backbone) {
 
     controller: undefined,
 
-    el: "#tool",
+    el: "#top",
 
-    template: _.template("<h2>Hello World!</h2><a href='#tool''>tool</a><br/><a href='#''>index</a><br/><a href='#top/10''>top 10</a>"),
-
-    // events: {
-    //   "transitionend #tool": "remove",
-    //   "webkitTransitionEnd #tool": "remove"
-    // },
-
-    bindedRemove: undefined,
-
+    template: _.template("<h2>Top</h2><a href='#tool''>tool</a><br/><a href='#''>index</a>"),
+    
     render: function() {
       console.log(this.options.controller.name);
-      this.$el.html( this.template );
+      this.$el.html( this.template );      
       this.$el.removeClass("hidden").addClass("show");
       return this;
     },
+
+    bindedRemove: undefined,
 
     close: function() {
       // hide element, unbind listeners and remove element
@@ -27,6 +22,8 @@ define(["backbone"], function(Backbone) {
       this.$el.bind("transitionend", this.bindedRemove);
       //this.listenTo(this.$el, "transitionend", this.remove);  // doesn't work
       this.$el.removeClass("show").addClass("hidden");
+      // this.remove();
+      // this.unbind();
       return this;
     },
     remove: function() {

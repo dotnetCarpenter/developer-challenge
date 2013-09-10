@@ -2,11 +2,23 @@
 <html>
 <head>
   <title>Mockup of structure</title>
-  <script src="bower_components/requirejs/require.js" data-main="js/loader"></script>
+  <style>
+    div {
+      -webkit-transition: all, -webkit-transform 0.5s;
+    }
+    .hidden {
+      -webkit-transform: translateX(-100%);
+    }
+    .show {
+      /* dunno */
+    }
+  </style>
 </head>
 <body>
   <h1>fooBar</h1>
 
-  <div id="tool"></div>
+  <div id="tool" class="hidden"></div>
+  <div id="top" class="hidden"></div>
+  <script src="bower_components/requirejs/require.js" data-main="js/loader"></script>
 </body>
 </html>

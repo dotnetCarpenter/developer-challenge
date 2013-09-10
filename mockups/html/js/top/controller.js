@@ -1,12 +1,12 @@
 /**
- * Tool - research architecture
+ * Top - research architecture
  * @version: 2013.9.1
  */
 
-define(["backbone", "tool/model", "tool/view"], function(Backbone, ToolModel, ToolView) {
+define(["backbone", "top/model", "top/view"], function(Backbone, Model, View) {
   "use strict";
 
-  function Tool() {
+  function Controller() {
     this.activate = function() {
       console.log(this.name + " is activating");
       this.view.render();
@@ -15,11 +15,11 @@ define(["backbone", "tool/model", "tool/view"], function(Backbone, ToolModel, To
       console.log("Deactivate is called on " + this.name);
       this.view.close();
     };
-    this.name = "ToolController";
+    this.name = "TopTop";
 
-    this.view = new ToolView({ controller: this });
+    this.view = new View({ controller: this });
     
   }
 
-  return Tool;
+  return Controller;
 });
