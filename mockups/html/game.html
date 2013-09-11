@@ -15,7 +15,7 @@
   <h1>Game Overview</h1>
   <div id="match" class="graph"></div>
   <script src="bower_components/lodash/dist/lodash.underscore.min.js"></script>
-  <script src="bower_components/d3/d3.js"></script>
+  <script src="bower_components/d3/d3.min.js"></script>
   <script>
     (function(doc, d3) {
       "use strict";
@@ -26,22 +26,20 @@
           .key(function(d) { return d.period })
           .entries(data);
         console.dir(data);*/
-        // remove error actions
+        
         var st = same("minutes");
         data = _.filter(data, function(d) {
-                  return !d.is_error;
-                })// add 1 minute to actions happening at the exact same time
-                .map(function(d, i, all) {
-                  if(i !== 0 && i !== all.length-1) {
-                    while( st(d, all[i+1]) || st(d, all[i-1]))
-                      add1min(d);
-                  }
-                  return d;
+                  return !d.is_error; // remove error actions
                 });
+        while( hasSame(data, st) ) {
+          data = data.map(fakeTime)
+                  .sort(comparator);
+        }
+        console.dir(data);
 
         var T       = _.max(data, function(d) {
                         return d.minutes;
-                      }).minutes,
+                      }).minutes +1,
             width   = 600,
             height  = 338,
             canvas  = d3.select("#match")
@@ -53,31 +51,45 @@
             color   = d3.scale.category20(),                        
             radius  = Math.min(width, height) / 2,
             radian2 = Math.PI * 2,
-            pie     = d3.layout.pie()
+          /*  pie     = d3.layout.pie()
                         .value(function(d) {
                           return d.minutes;//(d.minutes/T) * radian2;
                         })
-                        .sort(comparator),
+                        .sort(comparator),*/
             arc     = d3.svg.arc()
                         .innerRadius(radius - 40)
                         .outerRadius(radius),
                         //.startAngle(0),/*
                         //.endAngle(r360),*/
             path    = canvas.selectAll("path")
-                        .data(pie(data))
+                        .data(data)
                       .enter()
                         .append("path")
                         .attr("fill", function(d, i) { return color(i); })
                         .attr("d", function(d) {
-                          d.startAngle = radiant(d.data);
-                          d.endAngle = radiant({ minutes: d.data.minutes + 1 });
+                          d.startAngle = radiant(d);
+                          d.endAngle = radiant({ minutes: d.minutes + 1 });
                           return arc(d);
                         })
                         .append("title")
                         .text(function(d) {
-                          d = d.data;
+                      //    d = d.data;
                           return d.action_name + " - " + new Date(d.timestamp).toLocaleTimeString();
                         });
+
+          function hasSame(list, comparor) {
+            return _.some(list, function(d, i, all) {
+              return i === 0 ? false : comparor(d, all[i-1]);
+            });
+          }
+          // add 1 minute to actions happening at the exact same time [no pure]
+          function fakeTime(d, i, all) {
+            if(i !== 0) {
+              while( st(d, all[i-1])/* || st(d, all[i+1])*/ )
+                add1min(d);
+            }
+            return d;
+          }
           function same(prop) {
             return function(v1, v2) {
               return v1[prop] === v2[prop];
@@ -100,8 +112,8 @@
             //   .attr("d", arc);
         function comparator(a,b) {
           //console.log(a.timestamp < b.timestamp);
-          var val1 = a.timestamp,
-              val2 = b.timestamp;
+          var val1 = a.minutes,
+              val2 = b.minutes;
           return val1 == val2 ? 0 : val1 < val2 ? -1 : 1;
         };
       });
