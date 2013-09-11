@@ -13,7 +13,7 @@
 </head>
 <body>
   <h1>Game Overview</h1>
-  <div id="score"></div>
+  <div id="score">0</div>
   <div id="match" class="graph"></div>
   <script src="bower_components/lodash/dist/lodash.underscore.min.js"></script>
   <script src="bower_components/d3/d3.js"></script>
@@ -47,16 +47,7 @@
                         .append("svg")
                         .attr("width", width)
                         .attr("height", height),
-            score   = canvas.append("g")
-                        .append("rect")
-                        .attr("width", 150)
-                        .attr("height", 40)
-                        .attr("transform", "translate(" + fl( width/2-(width/4)/2 ) + ", 0)")
-                        .attr("fill", "#1f77b4")
-                        .append("text")
-                        .attr("transform", "translate(0, 10)")
-                        .style("color", "#ff7f0e")
-                        .attr("text-anchor", "middle"),
+            score   = d3.select("#score"),
             color   = d3.scale.category20(),
             radius  = Math.min(width, height-50) / 2,
             radian2 = Math.PI * 2,
@@ -108,7 +99,7 @@
         function arcTween(d, index) {
           var i = d3.interpolate({startAngle: 0, endAngle: 0}, d);
           setTimeout(function() {
-            score.text( (parseInt(score.text() ) + d.total_points) );
+            score.text( parseInt(score.text()) + d.total_points );
           }, index * 100)          
           return function(t) { return arc(i(t)); };
         }
