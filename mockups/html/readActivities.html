@@ -29,7 +29,7 @@
     var ActivityModel = Backbone.Model.extend({}),
         ActivitiesCollection = Backbone.Collection.extend({
           model: ActivityModel,
-          url: "/data/actions.json",
+          url: "/developer-challenge/data/actions.json",
           setTo: function(collection) {
             if(!collection.models)
               throw "setTo only accept a collection";
