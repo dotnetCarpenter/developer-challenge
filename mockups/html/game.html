@@ -7,15 +7,16 @@
     body { font-family: sans-serif; }
     .graph {
       width: 600px;
-      height: 338px;
+      height: 358px;
     }
   </style>
 </head>
 <body>
   <h1>Game Overview</h1>
+  <div id="score"></div>
   <div id="match" class="graph"></div>
   <script src="bower_components/lodash/dist/lodash.underscore.min.js"></script>
-  <script src="bower_components/d3/d3.min.js"></script>
+  <script src="bower_components/d3/d3.js"></script>
   <script>
     (function(doc, d3) {
       "use strict";
@@ -35,33 +36,38 @@
           data = data.map(fakeTime)
                   .sort(comparator);
         }
-        console.dir(data);
+        //console.dir(data);
 
         var T       = _.max(data, function(d) {
                         return d.minutes;
-                      }).minutes +1,
+                      }).minutes +1, // +1 or T and 0 minutes are in the same position
             width   = 600,
-            height  = 338,
+            height  = 358,
             canvas  = d3.select("#match")
                         .append("svg")
                         .attr("width", width)
-                        .attr("height", height)
-                      .append("g")
-                        .attr("transform", "translate(" + width/2 + ", " + height/2 + ")"),
-            color   = d3.scale.category20(),                        
-            radius  = Math.min(width, height) / 2,
+                        .attr("height", height),
+            score   = canvas.append("g")
+                        .append("rect")
+                        .attr("width", 150)
+                        .attr("height", 40)
+                        .attr("transform", "translate(" + fl( width/2-(width/4)/2 ) + ", 0)")
+                        .attr("fill", "#1f77b4")
+                        .append("text")
+                        .attr("transform", "translate(0, 10)")
+                        .style("color", "#ff7f0e")
+                        .attr("text-anchor", "middle"),
+            color   = d3.scale.category20(),
+            radius  = Math.min(width, height-50) / 2,
             radian2 = Math.PI * 2,
-          /*  pie     = d3.layout.pie()
-                        .value(function(d) {
-                          return d.minutes;//(d.minutes/T) * radian2;
-                        })
-                        .sort(comparator),*/
             arc     = d3.svg.arc()
                         .innerRadius(radius - 40)
                         .outerRadius(radius),
                         //.startAngle(0),/*
-                        //.endAngle(r360),*/
-            path    = canvas.selectAll("path")
+                        //.endAngle(radian2),*/
+            path    = canvas.append("g")
+                        .attr("transform", "translate(" + fl(width/2) + ", " + fl(height/2 + 25) + ")")
+                        .selectAll("path")
                         .data(data)
                       .enter()
                         .append("path")
@@ -70,46 +76,69 @@
                           d.startAngle = radiant(d);
                           d.endAngle = radiant({ minutes: d.minutes + 1 });
                           return arc(d);
-                        })
+                        }),
+            title   = path
                         .append("title")
                         .text(function(d) {
-                      //    d = d.data;
                           return d.action_name + " - " + new Date(d.timestamp).toLocaleTimeString();
-                        });
+                        }),            
+            pie     = d3.layout.pie()/*
+                        .value(function(d) {
+                          return d;
+                        });*/// used to control animation;
 
-          function hasSame(list, comparor) {
-            return _.some(list, function(d, i, all) {
-              return i === 0 ? false : comparor(d, all[i-1]);
-            });
+      path
+        .transition()
+        .duration(T*100)
+        .attrTween("d", arcTween);
+        
+        // animate pie
+/*        canvas
+          .append("g")
+          .attr("transform", "translate(" + fl(width/2) + ", " + fl(height/2 + 25) + ")")
+          .selectAll(".arc")
+          .data( pie(d3.range(T)) )
+          .enter()
+          .append("path")
+          .attr("fill", color(0))
+          .transition()
+          .duration(T*1000)
+          .attrTween("d", arcTween);*/
+
+        function arcTween(d, index) {
+          var i = d3.interpolate({startAngle: 0, endAngle: 0}, d);
+          setTimeout(function() {
+            score.text( (parseInt(score.text() ) + d.total_points) );
+          }, index * 100)          
+          return function(t) { return arc(i(t)); };
+        }
+        function fl(val) {
+          return Math.floor(val);
+        }
+        function hasSame(list, comparor) {
+          return _.some(list, function(d, i, all) {
+            return i === 0 ? false : comparor(d, all[i-1]);
+          });
+        }
+        // add 1 minute to actions happening at the exact same time [not pure]
+        function fakeTime(d, i, all) {
+          if(i !== 0) {
+            while( st(d, all[i-1]))
+              add1min(d);
           }
-          // add 1 minute to actions happening at the exact same time [no pure]
-          function fakeTime(d, i, all) {
-            if(i !== 0) {
-              while( st(d, all[i-1])/* || st(d, all[i+1])*/ )
-                add1min(d);
-            }
-            return d;
+          return d;
+        }
+        function same(prop) {
+          return function(v1, v2) {
+            return v1[prop] === v2[prop];
           }
-          function same(prop) {
-            return function(v1, v2) {
-              return v1[prop] === v2[prop];
-            }
-          }
-          function add1min(d) {
-            return d.minutes += 1, d;
-          }
-          function radiant(d) {
-            return (d.minutes/T) * radian2;
-          }
-            // group.append("path")
-            //   .data( pie(data) )
-            //   .value(function(d) {
-            //     return d.minutes;//convert later
-            //   })
-            // .enter()
-            //   .append("path")
-            //   .attr("fill", function(d, i) { return color(i); })
-            //   .attr("d", arc);
+        }
+        function add1min(d) {
+          return d.minutes += 1, d;
+        }
+        function radiant(d) {
+          return (d.minutes/T) * radian2;
+        }
         function comparator(a,b) {
           //console.log(a.timestamp < b.timestamp);
           var val1 = a.minutes,
