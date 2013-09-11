@@ -1,5 +1,11 @@
 Ultimate Manager developer challenge
 ====================================
+
+Tool: http://dotnetcarpenter.github.io/developer-challenge/mockups/html/readActivities.html
+Architecture: http://dotnetcarpenter.github.io/developer-challenge/mockups/html/structure.html
+Actions overview: http://dotnetcarpenter.github.io/developer-challenge/mockups/html/game.html
+
+
 At Ultimate Manager we want to challenge the way people consume football by creating an awesome second screen experience(1).
 
 **Objective**: To develop a small statistical dashboard to be used as a second screen.
