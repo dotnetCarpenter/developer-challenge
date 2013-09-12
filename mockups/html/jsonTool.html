@@ -5,21 +5,21 @@
   <title>Read JSON files</title>
   <style>
     body { font-family: sans-serif; }
-    input[type="text"] { width: 20em; }
+    input[type="text"] { width: 24em; }
   </style>
 </head>
 <body>
   <form action="#/" method="get">
   <fieldset>
     <legend class="label">Read Activities (<span></span>)</legend>
-    <select class="url">
+    <select class="url" tabindex="1">
       <option value="Actions" selected>actions.json</option>
       <option value="League">league.json</option>
       <option value="Squads">squads.json</option>
     </select>
-    <label>Sort: <input class="sort" type="text" tabindex="1" placeHolder="single property to sort by"/></label>
-    <label>Filter: <input class="filter" type="text" tabindex="2" placeHolder="comma space seperated values to filter by" /></label>
-    <label>Remove: <input class="omit" type="text" tabindex="3" placeHolder="space seperated properties to remove" /></label>
+    <label>Sort: <input class="sort" type="text" tabindex="2" placeHolder="single property to sort by"/></label>
+    <label>Filter: <input class="filter" type="text" tabindex="3" placeHolder="comma space seperated values to filter by" /></label>
+    <label>Remove: <input class="omit" type="text" tabindex="4" placeHolder="space seperated properties to remove" /></label>
     <input type="reset"/>
     <pre class="result"></pre>
 </form>
