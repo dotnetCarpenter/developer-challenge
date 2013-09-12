@@ -2,14 +2,18 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Game Overview</title>
+  <title>Game Overview</title>  
+  <link href="css/ui-lightness/jquery-ui-1.10.3.custom.css" rel="stylesheet">
   <style>
     body { font-family: sans-serif; }
     .graph {
       width: 600px;
       height: 358px;
     }
-    abbr { text-decoration: underline dashed; }
+    abbr {
+      text-decoration: underline dashed;
+      cursor: help;
+    }
   </style>
 </head>
 <body>
@@ -23,8 +27,12 @@
   <div id="score">0</div>
   <div id="match" class="graph"></div>
   <script src="bower_components/lodash/dist/lodash.underscore.min.js"></script>
+  <script src="bower_components/jquery/jquery.min.js"></script>
   <script src="bower_components/d3/d3.js"></script>
   <script>
+    jQuery(function($) {
+      $("*[title]").tooltip();
+    });
     (function(doc, d3, _) {
       "use strict";
 
@@ -161,5 +169,6 @@
       }
     }(document, d3, _))
   </script>
+  <script src="js/jquery.tooltip.min.js"></script>
 </body>
 </html>
