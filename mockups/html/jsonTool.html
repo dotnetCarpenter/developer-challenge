@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Read JSON files</title>
+  <style>
+    body { font-family: sans-serif; }
+    input[type="text"] { width: 20em; }
+  </style>
+</head>
+<body>
+  <form action="#/" method="get">
+  <fieldset>
+    <legend class="label">Read Activities (<span></span>)</legend>
+    <select class="url">
+      <option value="Actions" selected>actions.json</option>
+      <option value="League">league.json</option>
+      <option value="Squads">squads.json</option>
+    </select>
+    <label>Sort: <input class="sort" type="text" tabindex="1" placeHolder="single property to sort by"/></label>
+    <label>Filter: <input class="filter" type="text" tabindex="2" placeHolder="comma space seperated values to filter by" /></label>
+    <label>Remove: <input class="omit" type="text" tabindex="3" placeHolder="space seperated properties to remove" /></label>
+    <input type="reset"/>
+    <pre class="result"></pre>
+</form>
+<script src="bower_components/jquery/jquery.min.js"></script>
+<script src="bower_components/lodash/dist/lodash.underscore.min.js"></script>
+<!--<script src="bower_components/underscore/underscore-min.js"></script>-->
+<script src="bower_components/backbone/backbone.js"></script>
+<script>
+  jQuery(function($) {
+    "use strict";
+
+    var urls = {
+        Actions: "data/actions.json",
+        League: "data/league.json",
+        Squads: "data/squads.json"
+    };
+
+    function getCollection(urls, name) {
+      // simple caching
+      return new (getCollection[name] || (getCollection[name] = BaseCollection.extend({
+        url: "/developer-challenge/" + urls[name]
+      })))();
+    }
+    var model = Backbone.Model.extend({}),
+        BaseCollection = Backbone.Collection.extend({
+          model: model,
+          setTo: function(collection) {
+            if(!collection.models)
+              throw "method 'setTo' only accept a collection";
+            this.set(collection.models);
+            return this; // allow chaining
+          },
+          set: function() {
+            Backbone.Collection.prototype.set.apply(this, arguments);
+            this.trigger("change", arguments[0]); // easier than using the "all" event
+            return this;
+          }
+        }),
+        view = Backbone.View.extend({
+          el: "fieldset",
+          tagName: "fieldset",
+
+          result: $(".result"),
+          resultCount: $("legend span"),
+
+          events: {
+            "click input[type='reset']": "reset",
+            "keyup input[type='text']": "debounceAction",
+            "change select": "action"
+          },
+
+          reset: function() {
+            // reset is the same as filter without any value
+            this.$el.find(".filter").keyup();
+          },
+
+          action: function(event) {
+            var el = event.target;
+            this.options.target[el.className](el.value);
+          },
+
+          debounceAction: _.debounce(function(event) {
+            this.action(event);
+          }, 500),
+
+          render: function(collection) {
+            console.log("render!");
+            this.resultCount.html(collection.length);
+            this.result.html( JSON.stringify(collection, null, " ") );
+            return this;
+          } 
+        });
+
+    function Tool(jsonname) {
+      jsonname = jsonname || "Actions";
+      _.extend(
+        this, {
+          collection: getCollection(urls, jsonname, model),
+          currentCollection: getCollection(urls, jsonname, model),
+          view: new view({
+            target: this  // insanely simple target-action (don't use this is prod)
+          })
+        }
+      );
+
+      this.currentCollection.listenTo(this.collection, "sync", _.bind(function() {
+        this.currentCollection.setTo(this.collection);
+      }, this));
+      this.listenTo(this.currentCollection, "change", this.update);
+
+      this.collection.fetch({ error: errorLogger });
+
+      function errorLogger() {
+        console.log(arguments);
+      }
+    }    
+    Tool.prototype = _.extend({
+
+      update: function(data/*, status, jxhr*/) {
+        this.view.render(data);
+      },
+      die: function() {
+        this.stopListening(); // change, sync
+        this.view.undelegateEvents(); // see view
+        tool = null;  // puh
+      },
+      url: function(value) {
+        console.log("change url");
+        // this at best qualifies as an anti-pattern - there be dragons
+        tool.die();
+        tool = new Tool(value);
+      },
+      filter: function(value) {
+        console.log("filter");
+        if(value) {
+          value = value.split(", ");
+          this.currentCollection.set(this.collection.filter(function(collection) {
+            return _.every(value, function(val) { return _.contains(collection.attributes, val); })
+          }));
+        } else { // reset
+          this.currentCollection.setTo(this.collection);
+        }        
+      },
+      sort: function(value) {
+        console.log("sort");
+        var col = this.currentCollection;
+        var comparator = function(a,b) {
+          //console.log(a.get(value) > b.get(value));
+          var val1 = a.get(value),
+              val2 = b.get(value)
+          return val1 == val2 ? 0 : val1 < val2 ? -1 : 1;
+        };
+        col.models.sort(comparator);
+        col.trigger("change", col);
+      },
+      omit: function(value) {
+        console.log("omit");
+        var col = this.currentCollection;
+        value = value.split(" ");
+        var newCol = col.map(function(model) {
+          return model.omit(value);
+        });
+        if(newCol[0])
+          col.set(newCol, { merge: false });
+      }
+    }, Backbone.Events);
+
+    var tool = new Tool();
+  });
+</script>
+</body>
+</html>

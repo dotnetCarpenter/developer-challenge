@@ -1,8 +1,12 @@
 Ultimate Manager developer challenge
 ====================================
 
-Tool: http://dotnetcarpenter.github.io/developer-challenge/mockups/html/readActivities.html
+Tools: 
+- http://dotnetcarpenter.github.io/developer-challenge/mockups/html/readActivities.html
+- http://dotnetcarpenter.github.io/developer-challenge/mockups/html/jsonTool.html
+
 Architecture: http://dotnetcarpenter.github.io/developer-challenge/mockups/html/structure.html
+
 Actions overview: http://dotnetcarpenter.github.io/developer-challenge/mockups/html/game.html
 
 
