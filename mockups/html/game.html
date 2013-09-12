@@ -13,6 +13,12 @@
 </head>
 <body>
   <h1>Game Overview</h1>
+  <fieldset>
+    <legend>Controls</legend>
+    <form>
+      <label><input type="checkbox" checked/>Fake time distribution</label>
+    </form>
+  </fieldset>
   <div id="score">0</div>
   <div id="match" class="graph"></div>
   <script src="bower_components/lodash/dist/lodash.underscore.min.js"></script>
@@ -32,9 +38,11 @@
         data = _.filter(data, function(d) {
                   return !d.is_error; // remove error actions
                 });
-        while( hasSame(data, st) ) {
-          data = data.map(fakeTime)
-                  .sort(comparator);
+        if( doc.querySelector("input[type='checkbox']").checked ) {
+          while( hasSame(data, st) ) {
+            data = data.map(fakeTime)
+                    .sort(comparator);
+          }
         }
         //console.dir(data);
 
@@ -80,7 +88,7 @@
 
       path
         .transition()
-        .duration(T*100)
+        .duration(T*10)
         .attrTween("d", arcTween);
         
         // animate pie
