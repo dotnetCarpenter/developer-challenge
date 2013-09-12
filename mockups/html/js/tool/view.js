@@ -24,13 +24,13 @@ define(["backbone"], function(Backbone) {
     close: function() {
       // hide element, unbind listeners and remove element
       this.bindedRemove = _.bind(this.remove, this);
-      this.$el.bind("transitionend", this.bindedRemove);
+      this.$el.bind("transitionend webkitTransitionEnd", this.bindedRemove);
       //this.listenTo(this.$el, "transitionend", this.remove);  // doesn't work
       this.$el.removeClass("show").addClass("hidden");
       return this;
     },
     remove: function() {
-      this.$el.unbind("transitionend", this.bindedRemove);
+      this.$el.unbind("transitionend webkitTransitionEnd", this.bindedRemove);
       this.undelegateEvents();
       this.$el.empty();
       this.stopListening();

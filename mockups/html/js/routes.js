@@ -19,10 +19,11 @@ define(['backbone', 'jquery'], function(Backbone, $) {
       },
       activate: function(name, params) {
         var self = this;
+        console.log(name + " is being activated from routes");
         return function(Controller) {
           if(!controllerCache[name])
             controllerCache[name] = new Controller(params);
-// console.dir(controllerCache[name]);
+ console.dir(controllerCache[name]);
           self.currentController = controllerCache[name];
           controllerCache[name].activate();
         }
@@ -57,7 +58,7 @@ define(['backbone', 'jquery'], function(Backbone, $) {
         console.log("top::" + howmany);
 
         var deativator = controllerCache.deactivate();  // deactive previous controller and get a deferred object
-        controllerCache.load("top", deativator, controllerCache.activate("top"));  // require controller and activate once deativation is complete
+        controllerCache.load("top", deativator, controllerCache.activate("top", howmany));  // require controller and activate once deativation is complete
       },
       game: function(matchid, playerid) {
         console.log("game::" + matchid + " with player::" + playerid);
