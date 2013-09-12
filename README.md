@@ -2,12 +2,14 @@ Ultimate Manager developer challenge
 ====================================
 
 Tools: 
-- http://dotnetcarpenter.github.io/developer-challenge/mockups/html/readActivities.html
-- http://dotnetcarpenter.github.io/developer-challenge/mockups/html/jsonTool.html
+- [readActivities.html](http://dotnetcarpenter.github.io/developer-challenge/mockups/html/readActivities.html)
+- [jsonTool.html](http://dotnetcarpenter.github.io/developer-challenge/mockups/html/jsonTool.html)
 
-Architecture: http://dotnetcarpenter.github.io/developer-challenge/mockups/html/structure.html
+Architecture: [structure.html](http://dotnetcarpenter.github.io/developer-challenge/mockups/html/structure.html)
 
-Actions overview: http://dotnetcarpenter.github.io/developer-challenge/mockups/html/game.html
+Actions overview:
+- [game.html](http://dotnetcarpenter.github.io/developer-challenge/mockups/html/game.html)
+- [game2.html](http://dotnetcarpenter.github.io/developer-challenge/mockups/html/game2.html)
 
 
 At Ultimate Manager we want to challenge the way people consume football by creating an awesome second screen experience(1).
