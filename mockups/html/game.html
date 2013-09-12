@@ -46,7 +46,7 @@
                 });
         var ftCheckbox = doc.querySelector("input[type='checkbox']");
         ftCheckbox.addEventListener("click", function(event) {
-          if (!event.target.checked) location.reload(true);// stupid hack
+          if (!event.target.checked) location.reload(true), return;// stupid hack
           d3.select("svg").remove();
           d3.select("#score").html("0");
           run(event.target.checked, data.slice(0));
