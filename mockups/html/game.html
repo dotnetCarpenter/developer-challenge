@@ -30,10 +30,7 @@
   <script src="bower_components/jquery/jquery.min.js"></script>
   <script src="bower_components/d3/d3.js"></script>
   <script>
-    jQuery(function($) {
-      $("*[title]").tooltip();
-    });
-    (function(doc, d3, _) {
+    (function(doc, d3, _, $) {
       "use strict";
 
       d3.json("/developer-challenge/data/d3.mockup.json", function(error, data) {
@@ -74,7 +71,7 @@
       });
       function run(faketime, dataset) {
         var st = same("minutes");
-        //console.log(faketime, _.each(dataset, function(d) { console.log(d.minutes) }));
+        console.log(faketime, _.each(dataset, function(d) { console.log(d.minutes) }));
         if( faketime ) {
           while( hasSame(dataset, st) ) {
             dataset = _.map(dataset, fakeTime)
@@ -126,6 +123,10 @@
           .duration(T*10)
           .attrTween("d", arcTween);
 
+        jQuery(function($) {
+          $("*[title]").tooltip();
+        });
+
         function radiant(d) {
           return (d.minutes/T) * radian2;
         }
@@ -167,8 +168,8 @@
           return d.minutes += 1, d;
         }
       }
-    }(document, d3, _))
+    }(document, d3, _, jQuery))
   </script>
-  <script src="js/jquery.tooltip.min.js"></script>
+  <script src="js/jquery.tooltip.js"></script>
 </body>
 </html>
