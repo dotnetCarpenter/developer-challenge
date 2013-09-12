@@ -9,6 +9,7 @@
       width: 600px;
       height: 358px;
     }
+    abbr { text-decoration: underline dashed; }
   </style>
 </head>
 <body>
@@ -16,7 +17,7 @@
   <fieldset>
     <legend>Controls</legend>
     <form>
-      <label><input type="checkbox" checked/>Fake time distribution</label>
+      <label><input type="checkbox"/><abbr title="Multiple events happen at the exact same time. With this option checked, the events will be moved 1 minute, in order, until no events overlap each other. While the time representation will be skewed, the events will still match the overall game time proportionally.">Fake time distribution</abbr></label>
     </form>
   </fieldset>
   <div id="score">0</div>
@@ -24,8 +25,9 @@
   <script src="bower_components/lodash/dist/lodash.underscore.min.js"></script>
   <script src="bower_components/d3/d3.js"></script>
   <script>
-    (function(doc, d3) {
+    (function(doc, d3, _) {
       "use strict";
+
       d3.json("/developer-challenge/data/d3.mockup.json", function(error, data) {
         if (error) return console.warn(error);
 
@@ -34,19 +36,44 @@
           .entries(data);
         console.dir(data);*/
         
-        var st = same("minutes");
         data = _.filter(data, function(d) {
                   return !d.is_error; // remove error actions
                 });
-        if( doc.querySelector("input[type='checkbox']").checked ) {
-          while( hasSame(data, st) ) {
-            data = data.map(fakeTime)
+        var ftCheckbox = doc.querySelector("input[type='checkbox']");
+        ftCheckbox.addEventListener("click", function(event) {
+          if (!event.target.checked) location.reload(true);// stupid hack
+          d3.select("svg").remove();
+          d3.select("#score").html("0");
+          run(event.target.checked, data.slice(0));
+        });
+        run(false, data.slice(0));
+
+        
+
+
+// animate pie
+/*        canvas
+  .append("g")
+  .attr("transform", "translate(" + fl(width/2) + ", " + fl(height/2 + 25) + ")")
+  .selectAll(".arc")
+  .data( pie(d3.range(T)) )
+  .enter()
+  .append("path")
+  .attr("fill", color(0))
+  .transition()
+  .duration(T*1000)
+  .attrTween("d", arcTween);*/
+      });
+      function run(faketime, dataset) {
+        var st = same("minutes");
+        //console.log(faketime, _.each(dataset, function(d) { console.log(d.minutes) }));
+        if( faketime ) {
+          while( hasSame(dataset, st) ) {
+            dataset = _.map(dataset, fakeTime)
                     .sort(comparator);
           }
         }
-        //console.dir(data);
-
-        var T       = _.max(data, function(d) {
+        var T       = _.max(dataset, function(d) {
                         return d.minutes;
                       }).minutes +1, // +1 or T and 0 minutes are in the same position
             width   = 600,
@@ -67,7 +94,7 @@
             path    = canvas.append("g")
                         .attr("transform", "translate(" + fl(width/2) + ", " + fl(height/2 + 25) + ")")
                         .selectAll("path")
-                        .data(data)
+                        .data(dataset)
                       .enter()
                         .append("path")
                         .attr("fill", function(d, i) { return color(i); })
@@ -80,35 +107,31 @@
                         .append("title")
                         .text(function(d) {
                           return d.action_name + " - " + new Date(d.timestamp).toLocaleTimeString();
-                        }),            
+                        });/*,            
             pie     = d3.layout.pie()/*
                         .value(function(d) {
                           return d;
                         });*/// used to control animation;
 
-      path
-        .transition()
-        .duration(T*10)
-        .attrTween("d", arcTween);
-        
-        // animate pie
-/*        canvas
-          .append("g")
-          .attr("transform", "translate(" + fl(width/2) + ", " + fl(height/2 + 25) + ")")
-          .selectAll(".arc")
-          .data( pie(d3.range(T)) )
-          .enter()
-          .append("path")
-          .attr("fill", color(0))
+        path
           .transition()
-          .duration(T*1000)
-          .attrTween("d", arcTween);*/
+          .duration(T*10)
+          .attrTween("d", arcTween);
 
+        function radiant(d) {
+          return (d.minutes/T) * radian2;
+        }
+        function comparator(a,b) {
+          //console.log(a.timestamp < b.timestamp);
+          var val1 = a.minutes,
+              val2 = b.minutes;
+          return val1 == val2 ? 0 : val1 < val2 ? -1 : 1;
+        }
         function arcTween(d, index) {
           var i = d3.interpolate({startAngle: 0, endAngle: 0}, d);
           setTimeout(function() {
             score.text( parseInt(score.text()) + d.total_points );
-          }, index * 100)          
+          }, index * 10)          
           return function(t) { return arc(i(t)); };
         }
         function fl(val) {
@@ -135,17 +158,8 @@
         function add1min(d) {
           return d.minutes += 1, d;
         }
-        function radiant(d) {
-          return (d.minutes/T) * radian2;
-        }
-        function comparator(a,b) {
-          //console.log(a.timestamp < b.timestamp);
-          var val1 = a.minutes,
-              val2 = b.minutes;
-          return val1 == val2 ? 0 : val1 < val2 ? -1 : 1;
-        };
-      });
-    }(document, d3))
+      }
+    }(document, d3, _))
   </script>
 </body>
 </html>
