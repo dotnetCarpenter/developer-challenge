@@ -74,7 +74,7 @@
       });
       function run(faketime, dataset) {
         var st = same("minutes");
-        console.log(faketime, _.each(dataset, function(d) { console.log(d.minutes) }));
+    //    console.log(faketime, _.each(dataset, function(d) { console.log(d.minutes) }));
         if( faketime ) {
           while( hasSame(dataset, st) ) {
             dataset = _.map(dataset, fakeTime)
