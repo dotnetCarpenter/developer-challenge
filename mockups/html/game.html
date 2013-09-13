@@ -28,7 +28,7 @@
   <div id="match" class="graph"></div>
   <script src="bower_components/lodash/dist/lodash.underscore.min.js"></script>
   <script src="bower_components/jquery/jquery.min.js"></script>
-  <script src="bower_components/d3/d3.js"></script>
+  <script src="bower_components/d3/d3.min.js"></script>
   <script>
     (function(doc, d3, _, $) {
       "use strict";
@@ -110,14 +110,18 @@
                           d.startAngle = radiant(d);
                           d.endAngle = radiant({ minutes: d.minutes + 1 });
                           return arc(d);
+                        })  // the title attribute and class name is a hack to get jQuery tooltip to work
+                            // not proper SVG
+                        .attr("title", function(d) {
+                          return d.action_name + " - " + new Date(d.timestamp).toLocaleTimeString();
                         })
                         .attr("class", "ev"),
             title   = path
                         .append("title")
                         .text(function(d) {
                           return d.action_name + " - " + new Date(d.timestamp).toLocaleTimeString();
-                        });/*,            
-            pie     = d3.layout.pie()/*
+                        });
+            /*,pie     = d3.layout.pie()/*
                         .value(function(d) {
                           return d;
                         });*/// used to control animation;
@@ -174,6 +178,6 @@
       }
     }(document, d3, _, jQuery))
   </script>
-  <script src="js/jquery.tooltip.js"></script>
+  <script src="js/jquery.tooltip.min.js"></script>
 </body>
 </html>
